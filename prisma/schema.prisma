@@ -15,7 +15,8 @@ datasource db {
 
 model HikingBoots {
   id       Int      @id @default(autoincrement())
-  Brand    String?
-  Price    Decimal? @db.Decimal(2, 0)
-  Quantity Int?
+  brand    String   // Removed "?" to make it required
+  price    Decimal  @db.Decimal(10, 2) // Allows for accurate pricing
+  quantity Int      // Removed "?" to ensure stock is always tracked
+  createdAt DateTime @default(now()) // Adds a timestamp for when the product is added
 }

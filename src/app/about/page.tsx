@@ -5,8 +5,14 @@ export default function About() {
   return (
     <div className="min-h-screen">
       <div className="relative flex flex-col items-center justify-center">
-        <Image src={Forest} alt="forest" className="w-[100vw] h-[35vh] object-cover z-[-1]" />
-        <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 text-center -translate-y-1/2 hiking-font text-9xl">Our Story</h1>
+        <Image
+          src={Forest}
+          alt="forest"
+          className="w-[100vw] h-[35vh] object-cover z-[-1]"
+        />
+        <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 text-center -translate-y-1/2 hiking-font text-9xl">
+          Our Story
+        </h1>
       </div>
       <section className="flex flex-col gap-2 p-4">
         <h1 className="hiking-font text-7xl font-bold">

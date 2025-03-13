@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ClassicBootImage from "@/assets/img/boot.png";
 import ForestBackdrop from "@/assets/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg";
-import SummitClassicCamping from "@/assets/img/summit_classic.png";
 export default function ClassicBoot() {
   return (
     <>
@@ -46,14 +45,22 @@ export default function ClassicBoot() {
 
       <section className="relative min-h-screen grid grid-cols-2 bg-[#11210e]">
         <div className="col-span-1 card-primary flex flex-col justify-between ">
-            <div className="w-full h-[4rem] bg-[#11210e]"></div>
-          <div className="flex flex-col items-center justify-center p-4">
+          <div className="w-full h-[4rem] bg-[#11210e]"></div>
+          <div className="flex flex-col gap-3 items-center justify-center p-4">
             <p className="text-4xl text-center text-[#1b5659]">
-              Born from decades of craftsmanship, <b className="hiking-font">The Summit Classic</b> is
-              more than just a hiking boot—it&apos;s a legacy. Handmade with the
-              finest full-grain leather and reinforced with a Vibram sole, this
-              boot is built for the toughest trails and the longest journeys.
+              Born from decades of craftsmanship,{" "}
+              <b className="hiking-font">The Summit Classic</b> is more than
+              just a hiking boot—it&apos;s a legacy. Handmade with the finest
+              full-grain leather and reinforced with a Vibram sole, this boot is
+              built for the toughest trails and the longest journeys.
             </p>
+
+            <Link
+              href="/boots"
+              className="w-1/2 text-center p-4 rounded-full font-bold bg-amber-600"
+            >
+              <button>Find your boot</button>
+            </Link>
           </div>
           <div className="w-full h-[4rem] bg-[#0f3409]"></div>
         </div>

@@ -2,7 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import ClassicBootImage from "@/assets/img/boot.png";
 import ForestBackdrop from "@/assets/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg";
-export default function ClassicBoot() {
+
+type BootProps = {
+  bootProps: {
+    name: string;
+    firstSectionTitle: string[];
+    firstSectionQuote: string;
+    firstSectionBackgroundImage: string;
+    firstSectionBackgroundImageAlt: string;
+    secondSectionBootTitle: string;
+    secondSectionBootDescription: {
+      text: string;
+      boldtext: string;
+    };
+    secondSectionBootImg: string;
+    secondSectionBootImgAlt: string;
+  };
+};
+export default function ClassicBoot({ bootProps} : BootProps) {
   return (
     <>
       <section className="relative min-h-screen grid grid-cols-2 flex-col gap-6 p-4">
@@ -26,11 +43,7 @@ export default function ClassicBoot() {
         {/* right side */}
         <div className="z-10 p-4 col-span-1 flex flex-col justify-center">
           <div className="flex flex-col">
-            {/* <Image
-              src={ClassicBootImage}
-              alt="Classic Boot"
-              className="w-[30rem]"
-            /> */}
+            
             <div className="w-[400px] text-white p-4 ">
               <p className="mt-2 text-6xl font-bold text-center text-shadow">
                 <q>
@@ -48,7 +61,7 @@ export default function ClassicBoot() {
           <div className="w-full h-[4rem] bg-[#11210e]"></div>
           <div className="flex flex-col gap-3 items-center justify-center p-4">
             <p className="text-4xl text-center text-[#1b5659]">
-              Born from decades of craftsmanship,{" "}
+              Born from decades of craftsmanship,
               <b className="hiking-font">The Summit Classic</b> is more than
               just a hiking boot—it&apos;s a legacy. Handmade with the finest
               full-grain leather and reinforced with a Vibram sole, this boot is

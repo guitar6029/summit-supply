@@ -57,3 +57,15 @@ body {
 .text-shadow {
   text-shadow: 4px 3px 2px rgba(219,133,44,0.6);
 }
+
+.text-shadow-white {
+  text-shadow: 4px 3px 2px rgba(255,255,255,0.6);
+}
+
+.leather-boot-color{
+  color: rgb(153 92 63);
+}
+
+.boots-primary-color-title{
+  color: #efaf24
+}

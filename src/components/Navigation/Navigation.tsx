@@ -13,8 +13,8 @@ export default function Navigation() {
             </div>
 
             <div className="flex flex-row item-center gap-10">
-                <Link href={"/supplies"} className="hiking-font text-4xl hover:text-orange-500 transition duration-300 ease-in">Supplies</Link>
-                <Link href={"/about"} className="hiking-font text-4xl hover:text-orange-500 transition duration-300 ease-in">About</Link>
+                
+                <Link href={"/about"} className="hiking-font text-4xl hover:text-orange-500 transition duration-300 ease-in">Our Story</Link>
             </div>
 
         </div>

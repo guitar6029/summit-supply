@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Summit Supply",
-  description: "Hiker's best friend",
+  description: "Handmade for the Trail. Built to Last.",
 };
 
 export default function RootLayout({

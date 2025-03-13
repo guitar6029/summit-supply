@@ -1,9 +1,14 @@
+import Hero from "@/components/Hero/Hero"
 
-
-export default async function Home() {
+// This is a Server Component, so you can fetch data directly here
+export default function Home() {
   return (
-    <div className="h-[40rem]">
-
+    <div className="min-h-screen">
+      <Hero />
+      <section>
+        <h1 className="hiking-font text-2xl md:text-[10rem]">Our Picks</h1>
+      </section>
     </div>
-  );
+  )  
+
 }

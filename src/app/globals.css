@@ -12,6 +12,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +20,36 @@
   }
 }
 
+/* Define the custom font using @font-face */
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/MyFont.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Optional: Define the custom class using the custom font */
+.hiking-font {
+  font-family: 'MyFont', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x:hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.triangle {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 50px 75px 50px;
+  border-color: transparent transparent #FF4532 transparent;
+  transform: rotate(0deg);
 }

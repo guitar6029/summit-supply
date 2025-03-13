@@ -69,3 +69,21 @@ body {
 .boots-primary-color-title{
   color: #efaf24
 }
+
+.primary-bg {
+  background: #1b5659;
+}
+
+.primary-text{
+  color: #ffa805;
+}
+
+.card-primary{
+  background: #d49d1f;
+}
+
+.wooden-post-bg{
+  background: url("../assets/img//wooden_post.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

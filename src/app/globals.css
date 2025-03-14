@@ -98,3 +98,16 @@ body {
   background-repeat: no-repeat;
  
 }
+
+.hiking-bg{
+  background-image: url("/img/austin-ban-juHayWuaaoQ-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hiking-2-bg{
+  background-image: url("/img/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -11,6 +11,7 @@ export type Boot = {
   };
   secondSectionBootImg: string;
   secondSectionBootImgAlt: string;
+  secondaryImg: string;
 };
 
 export const boots: Boot[] = [
@@ -23,11 +24,12 @@ export const boots: Boot[] = [
     firstSectionBackgroundImageAlt: "forest",
     secondSectionBootTitle: "The Summit Classic",
     secondSectionBootDescription: {
-      text: "Born from decades of craftsmanship, The Summit Classic is more than just a hiking boot—it&apos;s a legacy. Handmade with the finest full-grain leather and reinforced with a Vibram sole, this boot is built for the toughest trails and the longest journeys.",
+      text: "Born from decades of craftsmanship, The Summit Classic is more than just a hiking boot—it's a legacy. Handmade with the finest full-grain leather and reinforced with a Vibram sole, this boot is built for the toughest trails and the longest journeys.",
       boldtext: "The Summit Classic",
     },
     secondSectionBootImg: "summitClassic",
     secondSectionBootImgAlt: "The Summit Classic",
+    secondaryImg: "summitClassic",
   },
   {
     name: "The Ridge Explorer",
@@ -43,5 +45,6 @@ export const boots: Boot[] = [
     },
     secondSectionBootImg: "ridgeExplorer",
     secondSectionBootImgAlt: "The Ridge Explorer",
+    secondaryImg: "ridgeExplorer",
   },
 ];

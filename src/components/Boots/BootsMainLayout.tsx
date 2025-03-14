@@ -19,6 +19,7 @@ type BootProps = {
     };
     secondSectionBootImg: string;
     secondSectionBootImgAlt: string;
+    secondaryImg: string;
   };
 };
 export default function ClassicBoot({ bootProps }: BootProps) {
@@ -37,9 +38,20 @@ export default function ClassicBoot({ bootProps }: BootProps) {
     return ClassicBootImage;
   }
 
+  function getSecondaryBgClass(imageName: string) {
+    if (imageName === "ridgeExplorer") {
+      return "hiking-2-bg";
+    }
+    return "hiking-bg";
+  }
+
+  const bootText = bootProps.secondSectionBootDescription.text;
+  const bootBoldText = bootProps.secondSectionBootDescription.boldtext;
+  const parts = bootText.split(new RegExp(`(${bootBoldText})`, "gi"));
+
   return (
     <>
-      <section className="relative min-h-screen grid grid-cols-2 flex-col gap-6 p-4">
+      <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 flex-col gap-6 p-4">
         {/* Background Image */}
         <Image
           src={getBackgroundImage(bootProps.firstSectionBackgroundImage)}
@@ -52,7 +64,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
         {/* left side */}
         <div className="col-span-1">
           {/* section with the fixed text */}
-          <div className="hiking-font text-[10rem] font-bold text-nowrap flex flex-col gap-1 sticky top-[4rem] ml-10">
+          <div className="hiking-font text-[4rem] md:text-[7rem] text-center md:text-left font-bold text-wrap md:text-nowrap flex flex-col gap-1 sticky top-[4rem] ml-10">
             <h1 className="leather-boot-color text-shadow-white">
               {bootProps.firstSectionTitle[0]}
             </h1>
@@ -66,10 +78,10 @@ export default function ClassicBoot({ bootProps }: BootProps) {
         </div>
 
         {/* right side */}
-        <div className="z-10 p-4 col-span-1 flex flex-col justify-center">
+        <div className="z-10 p-4 col-span-1 flex flex-col sm:items-center justify-center">
           <div className="flex flex-col">
-            <div className="w-[30vw] text-white p-4 ">
-              <p className="mt-2 text-6xl font-bold text-center text-shadow">
+            <div className="w-[100%] md:w-[30vw]  text-white p-4 ">
+              <p className="mt-2 text-wrap text-[2rem] md:text-6xl font-bold text-center text-shadow">
                 <q>{bootProps.firstSectionQuote}</q>
               </p>
             </div>
@@ -77,27 +89,25 @@ export default function ClassicBoot({ bootProps }: BootProps) {
         </div>
       </section>
 
-      <section className="relative min-h-screen grid grid-cols-2 bg-[#11210e]">
+      <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 bg-[#11210e]">
         <div className="col-span-1 card-primary flex flex-col justify-between ">
           <div className="w-full h-[4rem] bg-[#11210e]"></div>
           <div className="flex flex-col gap-3 items-center justify-center p-4">
-            <p className="text-4xl text-center text-[#1b5659]">
-              {bootProps.secondSectionBootDescription.text
-                .split(" ")
-                .map((word, i) =>
-                  word === "The Summit Classic" ? (
-                    <b key={i} className="hiking-font">
-                      {bootProps.secondSectionBootDescription.boldtext}
-                    </b>
-                  ) : (
-                    word + " "
-                  )
-                )}
+            <p className="text-2xl md:text-4xl text-center text-[#1b5659]">
+              {parts.map((part, i) =>
+                part.toLowerCase() === bootBoldText.toLowerCase() ? (
+                  <b key={i} className="hiking-font">
+                    {part}
+                  </b>
+                ) : (
+                  part
+                )
+              )}
             </p>
 
             <Link
               href="/boots"
-              className="w-1/2 text-center p-4 rounded-full font-bold bg-amber-600"
+              className="w-full md:w-1/2 text-center p-4 rounded-full font-bold bg-amber-600"
             >
               <button>Find your boot</button>
             </Link>
@@ -107,7 +117,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
 
         <div className="col-span-1 flex flex-col justify-between">
           <div className="bg-[#0f3409] p-10">
-            <h1 className="hiking-font text-6xl text-nowrap  font-bold text-shadow">
+            <h1 className="hiking-font text-4xl text-center md:text-left md:text-5xl lg:text-6xl text-nowrap  font-bold text-shadow">
               {bootProps.secondSectionBootTitle}
             </h1>
           </div>
@@ -121,8 +131,13 @@ export default function ClassicBoot({ bootProps }: BootProps) {
               className="w-[30rem]"
             />
           </div>
-          <div className="bg-[#0f3409] w-full h-[15rem]"></div>
+          <div
+            className={`w-full h-[15rem] ${getSecondaryBgClass(
+              bootProps.secondaryImg
+            )}`}
+          ></div>
         </div>
+        <div className="w-full h-[4rem] bg-[#0f3409]"></div>
       </section>
     </>
   );

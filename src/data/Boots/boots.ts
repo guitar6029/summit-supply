@@ -12,6 +12,7 @@ export type Boot = {
   secondSectionBootImg: string;
   secondSectionBootImgAlt: string;
   secondaryImg: string;
+  urlSlug: string;
 };
 
 export const boots: Boot[] = [
@@ -30,6 +31,7 @@ export const boots: Boot[] = [
     secondSectionBootImg: "summitClassic",
     secondSectionBootImgAlt: "The Summit Classic",
     secondaryImg: "summitClassic",
+    urlSlug: "the-summit-classic",
   },
   {
     name: "The Ridge Explorer",
@@ -46,6 +48,7 @@ export const boots: Boot[] = [
     secondSectionBootImg: "ridgeExplorer",
     secondSectionBootImgAlt: "The Ridge Explorer",
     secondaryImg: "ridgeExplorer",
+    urlSlug: "the-ridge-explorer",
   },
   {
     name: "The Trail Rover",
@@ -62,6 +65,7 @@ export const boots: Boot[] = [
     secondSectionBootImg: "trailRover",
     secondSectionBootImgAlt: "The Trail Rover",
     secondaryImg: "trailRover",
+    urlSlug: "the-trail-rover",
   },
   {
     name: "The Trail Strider",
@@ -78,5 +82,6 @@ export const boots: Boot[] = [
     secondSectionBootImg: "trailStrider",
     secondSectionBootImgAlt: "The Trail Strider",
     secondaryImg: "trailStrider",
+    urlSlug: "the-trail-strider",
   },
 ];

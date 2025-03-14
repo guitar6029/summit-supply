@@ -22,6 +22,7 @@ type BootProps = {
     secondSectionBootImg: string;
     secondSectionBootImgAlt: string;
     secondaryImg: string;
+    urlSlug:string
   };
 };
 export default function ClassicBoot({ bootProps }: BootProps) {
@@ -127,7 +128,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
             </p>
 
             <Link
-              href="/boots"
+              href={`/boots/${bootProps.urlSlug}`}
               className="w-full md:w-1/2 text-center p-4 rounded-full font-bold bg-amber-600"
             >
               <button>Find your boot</button>

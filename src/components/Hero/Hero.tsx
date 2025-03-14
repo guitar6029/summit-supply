@@ -1,35 +1,24 @@
 import Image from "next/image";
-import Forest from "@/assets/img/nathan-dumlao-pLoMDKtl-JY-unsplash.jpg";
 import Logo from "@/assets/img/logo.png";
+
 export default function Hero() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center">
-      <Image
-        src={Forest}
-        alt="Mountains"
-        className="w-[100%] object-cover z-[-1] opacity-80"
-      />
-      <div className="absolute top-40 left-1/2 transform -translate-x-1/2  text-4xl w-[60rem]">
-        <div className="flex flex-col">
-          <div className="flex flex-row items-center">
-            <div className="flex flex-col">
-              <h1 className="hiking-font text-black text-[10rem] text-center z-[2] text-shadow">
-                Supply
-              </h1>
-              {/* <q className="text-black z-[2] text-xl font-bold relative -top-10">
-                Handmade for the Trail. Built to Last.
-              </q> */}
-            </div>
-
-            <h1 className="hiking-font text-black text-[10rem] text-center z-[2] text-shadow">
-              Summit
+    <div className="relative min-h-screen flex flex-col items-center justify-center hero-bg">
+      <div className="relative flex items-center justify-center w-[100vw]">
+        <Image
+          src={Logo}
+          alt="Mountain and a Tree logo"
+          className="absolute w-[40rem] z-[1]"
+        />
+        <div className="flex flex-row items-baseline z-[2] text-5xl md:text-[6rem] lg:text-[10rem] ">
+          
+          <h1 className="hiking-font text-black text-center text-shadow">
+              Supply
             </h1>
-          </div>
-          <Image
-            src={Logo}
-            alt="Mountain and a Tree logo"
-            className="w-[40rem] z-[1] absolute -top-50 left-1/2 transform -translate-x-1/2"
-          />
+          <h1 className="hiking-font text-black text-center text-shadow">
+            Summit
+          </h1>
+          {/* <span className=""><sup>&trade;</sup></span> */}
         </div>
       </div>
     </div>

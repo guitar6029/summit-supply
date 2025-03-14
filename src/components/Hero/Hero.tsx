@@ -18,7 +18,7 @@ export default function Hero() {
           <h1 className="hiking-font text-black text-center text-shadow">
             Summit
           </h1>
-          {/* <span className=""><sup>&trade;</sup></span> */}
+          <span className="hiking-font text-black text-[1rem] md:text-[1.5rem] lg:text-[2.5rem]">&trade;</span>
         </div>
       </div>
     </div>

@@ -32,6 +32,12 @@ export default function Navigation() {
         >
           Our Story
         </Link>
+        <Link
+          href={"/cart"}
+          className="hiking-font text-4xl hover:text-orange-500 transition duration-300 ease-in"
+        >
+          Cart
+        </Link>
       </div>
     </div>
   );

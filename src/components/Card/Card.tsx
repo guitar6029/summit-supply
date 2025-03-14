@@ -33,7 +33,8 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
   }
 
     function addItemToShoppingCart(){
-      addToShoppingCart(Number(id), boot.model, 1, state.selectedBootSize);
+        console.log('clicked this add to cart')
+      addToShoppingCart(Number(id), boot.model, state.quantity, state.selectedBootSize);
     }
 
   return (
@@ -91,8 +92,8 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
               </div>
               <button
                 className="w-[20vw] p-4 rounded-lg cursor-pointer text-white bg-amber-700 font-bold text-4xl"
-                disabled={state.quantity === 0}
-                onClick={() => addItemToShoppingCart}
+                
+                onClick={addItemToShoppingCart}
               >
                 Add to shopping cart
               </button>

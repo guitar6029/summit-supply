@@ -13,7 +13,7 @@ export default function Boots() {
     </div>
     <div>
     {boots.map((boot: Boot) => {
-        return <BootsMainLayout bootProps={boot} key={boot.name} />;
+        return <BootsMainLayout bootProps={boot} key={boot.id} />;
       })}
     </div>
     </>

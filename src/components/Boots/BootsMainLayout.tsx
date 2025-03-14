@@ -9,6 +9,7 @@ import TrailStrider from "@/assets/img/trailStider_nobackground.png"
 import TrailStriderBg from "@/assets/img/jordan-pulmano-PoAkzayxhYE-unsplash.jpg"
 type BootProps = {
   bootProps: {
+    id: number,
     name: string;
     firstSectionTitle: string[];
     firstSectionQuote: string;
@@ -128,7 +129,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
             </p>
 
             <Link
-              href={`/boots/${bootProps.urlSlug}`}
+              href={`/boots/${bootProps.id}`}
               className="w-full md:w-1/2 text-center p-4 rounded-full font-bold bg-amber-600"
             >
               <button>Find your boot</button>

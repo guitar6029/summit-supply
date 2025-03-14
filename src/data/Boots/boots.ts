@@ -1,4 +1,5 @@
 export type Boot = {
+  id: number,
   name: string;
   firstSectionTitle: string[];
   firstSectionQuote: string;
@@ -17,6 +18,7 @@ export type Boot = {
 
 export const boots: Boot[] = [
   {
+    id:1,
     name: "The Summit Classic",
     firstSectionTitle: ["Our", "Classic", "Boot"],
     firstSectionQuote:
@@ -34,23 +36,7 @@ export const boots: Boot[] = [
     urlSlug: "the-summit-classic",
   },
   {
-    name: "The Ridge Explorer",
-    firstSectionTitle: ["Our", "Explorer", "Boot"],
-    firstSectionQuote:
-      "The Ridge Explorer is a rugged hiking boot that is built for the trail.",
-    firstSectionBackgroundImage: "ridgeExplorer",
-    firstSectionBackgroundImageAlt: "forest",
-    secondSectionBootTitle: "The Ridge Explorer",
-    secondSectionBootDescription: {
-      text: "The Ridge Explorer is a rugged hiking boot that is built for the trail. With a waterproof lining and a durable rubber sole, this boot is designed to keep you comfortable and protected in any terrain.",
-      boldtext: "The Ridge Explorer",
-    },
-    secondSectionBootImg: "ridgeExplorer",
-    secondSectionBootImgAlt: "The Ridge Explorer",
-    secondaryImg: "ridgeExplorer",
-    urlSlug: "the-ridge-explorer",
-  },
-  {
+    id:2,
     name: "The Trail Rover",
     firstSectionTitle: ["Our", "Casual", "Hiker"],
     firstSectionQuote:
@@ -68,6 +54,26 @@ export const boots: Boot[] = [
     urlSlug: "the-trail-rover",
   },
   {
+    id:3,
+    name: "The Ridge Explorer",
+    firstSectionTitle: ["Our", "Explorer", "Boot"],
+    firstSectionQuote:
+      "The Ridge Explorer is a rugged hiking boot that is built for the trail.",
+    firstSectionBackgroundImage: "ridgeExplorer",
+    firstSectionBackgroundImageAlt: "forest",
+    secondSectionBootTitle: "The Ridge Explorer",
+    secondSectionBootDescription: {
+      text: "The Ridge Explorer is a rugged hiking boot that is built for the trail. With a waterproof lining and a durable rubber sole, this boot is designed to keep you comfortable and protected in any terrain.",
+      boldtext: "The Ridge Explorer",
+    },
+    secondSectionBootImg: "ridgeExplorer",
+    secondSectionBootImgAlt: "The Ridge Explorer",
+    secondaryImg: "ridgeExplorer",
+    urlSlug: "the-ridge-explorer",
+  },
+  
+  {
+    id: 4,
     name: "The Trail Strider",
     firstSectionTitle: ["Our", "Hiking", "Sneaker"],
     firstSectionQuote:

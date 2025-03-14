@@ -88,6 +88,9 @@ body {
 .ridge-explorer-text {
   color: #726da8;
 }
+.ridge-explorer-text:hover{
+  color: white;
+}
 
 .hero-bg {
   background-image: url("/img/nathan-dumlao-pLoMDKtl-JY-unsplash.jpg");

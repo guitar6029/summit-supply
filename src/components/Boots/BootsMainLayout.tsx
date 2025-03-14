@@ -5,11 +5,11 @@ import ForestBackdrop from "@/assets/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg";
 import RidgeExplorerBoot from "@/assets/img/ridgeExplorer_nobackground.png";
 import RidgeExplorerBg from "@/assets/img/degleex-ganzorig-wQImoykAwGs-unsplash.jpg";
 import TrailRoverBoot from "@/assets/img/trailRover_nobackground.png";
-import TrailStrider from "@/assets/img/trailStider_nobackground.png"
-import TrailStriderBg from "@/assets/img/jordan-pulmano-PoAkzayxhYE-unsplash.jpg"
+import TrailStrider from "@/assets/img/trailStider_nobackground.png";
+import TrailStriderBg from "@/assets/img/jordan-pulmano-PoAkzayxhYE-unsplash.jpg";
 type BootProps = {
   bootProps: {
-    id: number,
+    id: number;
     name: string;
     firstSectionTitle: string[];
     firstSectionQuote: string;
@@ -23,7 +23,7 @@ type BootProps = {
     secondSectionBootImg: string;
     secondSectionBootImgAlt: string;
     secondaryImg: string;
-    urlSlug:string
+    urlSlug: string;
   };
 };
 export default function ClassicBoot({ bootProps }: BootProps) {
@@ -32,7 +32,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
       return RidgeExplorerBg;
     }
 
-    if (imageName === "trailStrider"){
+    if (imageName === "trailStrider") {
       return TrailStriderBg;
     }
 
@@ -48,7 +48,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
       return TrailRoverBoot;
     }
 
-    if (imageName === "trailStrider"){
+    if (imageName === "trailStrider") {
       return TrailStrider;
     }
     return ClassicBootImage;
@@ -61,7 +61,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
     if (imageName === "trailRover") {
       return "hiking-3-bg";
     }
-    if (imageName === "trailStrider"){
+    if (imageName === "trailStrider") {
       return "hiking-4-bg";
     }
 
@@ -115,7 +115,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
       <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 bg-[#11210e]">
         <div className="col-span-1 card-primary flex flex-col justify-between ">
           <div className="w-full h-[4rem] bg-[#11210e]"></div>
-          <div className="flex flex-col gap-3 items-center justify-center p-4">
+          <div className="flex flex-col gap-10 items-center justify-center p-4">
             <p className="text-2xl md:text-4xl text-center font-mono text-[#1b5659]">
               {parts.map((part, i) =>
                 part.toLowerCase() === bootBoldText.toLowerCase() ? (
@@ -130,7 +130,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
 
             <Link
               href={`/boots/${bootProps.id}`}
-              className="w-full md:w-1/2 text-center p-4 rounded-full font-bold bg-amber-600"
+              className="w-full md:w-1/2 text-center hover:cursor-pointer p-4 rounded-full text-5xl font-bold bg-amber-600 hover:bg-amber-800 transition duration-300 ease-in"
             >
               <button>Find your boot</button>
             </Link>

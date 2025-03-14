@@ -6,6 +6,7 @@ import RidgeExplorerBoot from "@/assets/img/ridgeExplorer_nobackground.png";
 import RidgeExplorerBg from "@/assets/img/degleex-ganzorig-wQImoykAwGs-unsplash.jpg";
 import TrailRoverBoot from "@/assets/img/trailRover_nobackground.png";
 import TrailStrider from "@/assets/img/trailStider_nobackground.png"
+import TrailStriderBg from "@/assets/img/jordan-pulmano-PoAkzayxhYE-unsplash.jpg"
 type BootProps = {
   bootProps: {
     name: string;
@@ -27,6 +28,10 @@ export default function ClassicBoot({ bootProps }: BootProps) {
   function getBackgroundImage(imageName: string) {
     if (imageName === "ridgeExplorer") {
       return RidgeExplorerBg;
+    }
+
+    if (imageName === "trailStrider"){
+      return TrailStriderBg;
     }
 
     return ForestBackdrop;

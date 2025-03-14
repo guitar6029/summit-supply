@@ -9,7 +9,7 @@ datasource db {
 
 model hikingboots {
   id         Int       @id @default(autoincrement())
-  brand      String
+  model      String
   price      Decimal   @db.Decimal(10, 2)
   quantity   Int
   created_at DateTime? @default(now()) @db.Timestamp(6)

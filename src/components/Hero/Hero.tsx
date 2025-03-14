@@ -11,14 +11,15 @@ export default function Hero() {
           className="absolute w-[40rem] z-[1]"
         />
         <div className="flex flex-row items-baseline z-[2] text-5xl md:text-[6rem] lg:text-[10rem] ">
-          
           <h1 className="hiking-font text-black text-center text-shadow">
-              Supply
-            </h1>
+            Supply
+          </h1>
           <h1 className="hiking-font text-black text-center text-shadow">
             Summit
           </h1>
-          <span className="hiking-font text-black text-[1rem] md:text-[1.5rem] lg:text-[2.5rem]">&trade;</span>
+          <span className="hiking-font text-black text-[1rem] md:text-[1.5rem] lg:text-[2.5rem]">
+            &trade;
+          </span>
         </div>
       </div>
     </div>

@@ -47,4 +47,20 @@ export const boots: Boot[] = [
     secondSectionBootImgAlt: "The Ridge Explorer",
     secondaryImg: "ridgeExplorer",
   },
+  {
+    name: "The Trail Rover",
+    firstSectionTitle: ["Our", "Casual", "Hiker"],
+    firstSectionQuote:
+      "Adventure starts with every step. Walk farther, explore more.",
+    firstSectionBackgroundImage: "trailRover",
+    firstSectionBackgroundImageAlt: "scenic trail",
+    secondSectionBootTitle: "The Trail Rover",
+    secondSectionBootDescription: {
+      text: "Designed for the modern explorer, The Trail Rover is the perfect fusion of casual comfort and rugged durability. Whether you're navigating city streets or taking on forest trails, this boot offers the versatility you need. With a lightweight build, breathable suede-mesh construction, and an all-terrain sole, the Trail Rover keeps you comfortable on every journey.",
+      boldtext: "The Trail Rover",
+    },
+    secondSectionBootImg: "trailRover",
+    secondSectionBootImgAlt: "The Trail Rover",
+    secondaryImg: "trailRover",
+  },
 ];

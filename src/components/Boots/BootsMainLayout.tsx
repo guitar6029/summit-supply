@@ -4,7 +4,7 @@ import ClassicBootImage from "@/assets/img/boot.png";
 import ForestBackdrop from "@/assets/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg";
 import RidgeExplorerBoot from "@/assets/img/ridgeExplorer_nobackground.png";
 import RidgeExplorerBg from "@/assets/img/degleex-ganzorig-wQImoykAwGs-unsplash.jpg";
-
+import TrailRoverBoot from "@/assets/img/trailRover_nobackground.png";
 type BootProps = {
   bootProps: {
     name: string;
@@ -35,12 +35,19 @@ export default function ClassicBoot({ bootProps }: BootProps) {
     if (imageName === "ridgeExplorer") {
       return RidgeExplorerBoot;
     }
+
+    if (imageName === "trailRover") {
+      return TrailRoverBoot;
+    }
     return ClassicBootImage;
   }
 
   function getSecondaryBgClass(imageName: string) {
     if (imageName === "ridgeExplorer") {
       return "hiking-2-bg";
+    }
+    if (imageName === "trailRover") {
+      return "hiking-3-bg";
     }
     return "hiking-bg";
   }
@@ -93,7 +100,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
         <div className="col-span-1 card-primary flex flex-col justify-between ">
           <div className="w-full h-[4rem] bg-[#11210e]"></div>
           <div className="flex flex-col gap-3 items-center justify-center p-4">
-            <p className="text-2xl md:text-4xl text-center text-[#1b5659]">
+            <p className="text-2xl md:text-4xl text-center font-mono text-[#1b5659]">
               {parts.map((part, i) =>
                 part.toLowerCase() === bootBoldText.toLowerCase() ? (
                   <b key={i} className="hiking-font">

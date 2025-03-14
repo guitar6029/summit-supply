@@ -53,67 +53,77 @@ body {
   transform: rotate(0deg);
 }
 
-
 .text-shadow {
-  text-shadow: 4px 3px 2px rgba(219,133,44,0.6);
+  text-shadow: 4px 3px 2px rgba(219, 133, 44, 0.6);
 }
 
 .text-shadow-white {
-  text-shadow: 4px 3px 2px rgba(255,255,255,0.6);
+  text-shadow: 4px 3px 2px rgba(255, 255, 255, 0.6);
 }
 
 .text-shadow-black {
-  text-shadow: 4px 3px 2px rgba(0,0,0,0.6);
+  text-shadow: 4px 3px 2px rgba(0, 0, 0, 0.6);
 }
 
-.leather-boot-color{
+.leather-boot-color {
   color: rgb(153 92 63);
 }
 
-.boots-primary-color-title{
-  color: #efaf24
+.boots-primary-color-title {
+  color: #efaf24;
 }
 
 .primary-bg {
   background: #1b5659;
 }
 
-.primary-text{
+.primary-text {
   color: #ffa805;
 }
 
-.card-primary{
+.card-primary {
   background: #d49d1f;
 }
 
-
-.ridge-explorer-text{
-  color: #726DA8;
+.ridge-explorer-text {
+  color: #726da8;
 }
 
-.hero-bg{
+.hero-bg {
   background-image: url("/img/nathan-dumlao-pLoMDKtl-JY-unsplash.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
- 
 }
 
-.hiking-bg{
+.hiking-bg {
   background-image: url("/img/austin-ban-juHayWuaaoQ-unsplash.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.hiking-2-bg{
+.hiking-2-bg {
   background-image: url("/img/scott-goodwill-y8Ngwq34_Ak-unsplash.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.hiking-3-bg{
+.hiking-3-bg {
   background-image: url("/img/adilet-asilbekov-vjLFc8ErKfw-unsplash.jpg");
   background-size: cover;
-  background-position:left;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hiking-4-bg {
+  background-image: url("/img/urban-vintage-8TJbrQGKFyU-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boot-layout-bg {
+  background-image: url("/img//nathan-dumlao-bWVDTNHcXPk-unsplash.jpg");
+  background-size: cover;
+  background-position: left;
   background-repeat: no-repeat;
 }

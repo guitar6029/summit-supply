@@ -5,6 +5,7 @@ import ForestBackdrop from "@/assets/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg";
 import RidgeExplorerBoot from "@/assets/img/ridgeExplorer_nobackground.png";
 import RidgeExplorerBg from "@/assets/img/degleex-ganzorig-wQImoykAwGs-unsplash.jpg";
 import TrailRoverBoot from "@/assets/img/trailRover_nobackground.png";
+import TrailStrider from "@/assets/img/trailStider_nobackground.png"
 type BootProps = {
   bootProps: {
     name: string;
@@ -39,6 +40,10 @@ export default function ClassicBoot({ bootProps }: BootProps) {
     if (imageName === "trailRover") {
       return TrailRoverBoot;
     }
+
+    if (imageName === "trailStrider"){
+      return TrailStrider;
+    }
     return ClassicBootImage;
   }
 
@@ -49,6 +54,10 @@ export default function ClassicBoot({ bootProps }: BootProps) {
     if (imageName === "trailRover") {
       return "hiking-3-bg";
     }
+    if (imageName === "trailStrider"){
+      return "hiking-4-bg";
+    }
+
     return "hiking-bg";
   }
 
@@ -135,7 +144,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
               alt={bootProps.secondSectionBootImgAlt}
               width={400}
               height={400}
-              className="w-[30rem]"
+              className="w-[40rem]"
             />
           </div>
           <div

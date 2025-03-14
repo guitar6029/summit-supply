@@ -63,4 +63,20 @@ export const boots: Boot[] = [
     secondSectionBootImgAlt: "The Trail Rover",
     secondaryImg: "trailRover",
   },
+  {
+    name: "The Trail Strider",
+    firstSectionTitle: ["Our", "Hiking", "Sneaker"],
+    firstSectionQuote:
+      "Light on your feet. Strong on the trail. Comfort meets performance.",
+    firstSectionBackgroundImage: "trailStrider",
+    firstSectionBackgroundImageAlt: "mountain path",
+    secondSectionBootTitle: "The Trail Strider",
+    secondSectionBootDescription: {
+      text: "The Trail Strider is built for those who seek adventure without sacrificing comfort. Engineered with a lightweight, breathable knit upper and a responsive cushioned sole, this sneaker offers the agility of a running shoe with the durability of a hiking boot. Whether you're tackling light trails, city streets, or weekend getaways, the Trail Strider is your go-to choice.",
+      boldtext: "The Trail Strider",
+    },
+    secondSectionBootImg: "trailStrider",
+    secondSectionBootImgAlt: "The Trail Strider",
+    secondaryImg: "trailStrider",
+  },
 ];

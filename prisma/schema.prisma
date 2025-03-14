@@ -12,5 +12,8 @@ model hikingboots {
   model      String
   price      Decimal   @db.Decimal(10, 2)
   quantity   Int
+  description String
+  onSale      Boolean
+  size        String[]
   created_at DateTime? @default(now()) @db.Timestamp(6)
 }

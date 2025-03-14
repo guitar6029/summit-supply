@@ -11,7 +11,7 @@ export type CardProps = {
   bootImage: StaticImageData;
   bgImg: StaticImageData;
   boot: {
-    brand: string;
+    model: string;
     description: string;
     price: string;
     quantity: number;

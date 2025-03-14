@@ -33,7 +33,7 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
   }
 
     function addItemToShoppingCart(){
-      addToShoppingCart(Number(id), 1, state.selectedBootSize);
+      addToShoppingCart(Number(id), boot.model, 1, state.selectedBootSize);
     }
 
   return (
@@ -51,7 +51,7 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
           <div className="col-span-1 flex flex-col bg-[#1b5659]">
             <div className="bg-[#0f3409] p-10">
               <h1 className="hiking-font text-9xl text-shadow-black boots-primary-color-title">
-                {boot.brand}
+                {boot.model}
               </h1>
               <p className="text-4xl text-wrap w-[40vw] font-bold">
                 {boot.description}

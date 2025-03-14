@@ -7,14 +7,14 @@ import type { CartItem } from "@/types/Cart";
 // Define the store type
 type CartState = {
     shoppingCart: CartItem[];
-    addToShoppingCart: (id: number, quantity: number, size: number) => void;
+    addToShoppingCart: (id: number, shoeModel: string, quantity: number, size: number) => void;
     clearAllItems: () => void;
 };
 
 // Zustand store with types
 const useCart = create<CartState>((set) => ({
     shoppingCart: [], // Initial state
-    addToShoppingCart: (id, quantity, size) => {
+    addToShoppingCart: (id, shoeModel, quantity, size) => {
         set((state) => {
             const foundItem = state.shoppingCart.find(
                 (item) => item.id === id && item.size === size
@@ -32,7 +32,7 @@ const useCart = create<CartState>((set) => ({
             } else {
                 // Add new item if it doesn't exist
                 return {
-                    shoppingCart: [...state.shoppingCart, { id, quantity, size }],
+                    shoppingCart: [...state.shoppingCart, { id, shoeModel, quantity, size }],
                 };
             }
         });

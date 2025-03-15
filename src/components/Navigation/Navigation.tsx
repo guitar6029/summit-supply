@@ -1,11 +1,14 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import Logo from "@/assets/img/logo.png";
 import { usePathname } from "next/navigation";
+import { Backpack } from "lucide-react";
+import useCart from "@/store/useCart";
 
 import Link from "next/link";
 export default function Navigation() {
+  const { shoppingCartIsEmpty } = useCart();
   const pathname = usePathname();
 
   return (
@@ -41,14 +44,17 @@ export default function Navigation() {
         >
           Our Story
         </Link>
-        <Link
-          href={"/cart"}
-          className={`hiking-font text-4xl ${
-            pathname === "/cart" ? "text-orange-500" : " "
-          } hover:text-orange-500 transition duration-300 ease-in`}
-        >
-          Cart
-        </Link>
+        
+          <Link
+            href={"/cart"}
+            className={`hiking-font text-4xl flex flex-row items-baseline gap-2 ${
+              pathname === "/cart" ? "text-orange-500" : " "
+            } hover:text-orange-500 transition duration-300 ease-in`}
+          >
+            <span>Cart</span>
+            {shoppingCartIsEmpty() === false && <Backpack size={40} />}
+          </Link>
+        
       </div>
     </div>
   );

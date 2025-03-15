@@ -60,11 +60,11 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
               <h1 className="hiking-font text-9xl text-shadow-black boots-primary-color-title">
                 {boot.model}
               </h1>
-              <p className="text-4xl text-wrap w-[40vw] font-bold">
+              <p className="text-4xl text-wrap w-[100%] md:w-[40vw] font-bold">
                 {boot.description}
               </p>
 
-              <h1 className="text-9xl text-right font-bold">{boot.price}</h1>
+              <h1 className="text-9xl text-right font-bold text-shadow-black">{boot.price}</h1>
             </div>
             <Image src={bootImage} alt="Boot" className="w-[25vw] mx-auto" />
             <div className="w-full h-[4rem] bg-[#0f3409]"></div>
@@ -116,7 +116,7 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
               </div>
               <button
                 disabled={state.quantity === 0 || state.selectedBootSize === null}
-                className={`w-[30vw] p-4 rounded-lg text-white mt-5 ${state.quantity === 0 || state.selectedBootSize === null ? 'bg-neutral-400 opacity-80' : 'bg-amber-700 cursor-pointer'}  font-bold text-4xl`}
+                className={`w-[100%] md:w-[30vw] p-4 rounded-lg text-white mt-5 ${state.quantity === 0 || state.selectedBootSize === null ? 'bg-neutral-400 opacity-80' : 'bg-amber-700 cursor-pointer'}  font-bold text-4xl`}
                 onClick={addItemToShoppingCart}
               >
                 Add to Your Cart

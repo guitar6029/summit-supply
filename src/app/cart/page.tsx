@@ -13,7 +13,8 @@ export default function ShoppingCartOverview() {
     <div className="min-h-screen mt-[10rem] border-t-[1rem] border-amber-300 p-10 bg-[#1b5659]">
       <h1 className="hiking-font text-6xl">Shopping Cart</h1>
       <hr />
-      <div className="grid grid-cols-5 gap-4 p-4">
+      {shoppingCart.length > 0 && (
+        <div className="grid grid-cols-5 gap-4 p-4">
         <div className="col-span-1">
           <span className="hiking-font text-3xl">PRODUCT</span>
         </div>
@@ -28,10 +29,11 @@ export default function ShoppingCartOverview() {
         </div>
         <div className="col-span-1"></div>
       </div>
+      )}
 
       {shoppingCart.length === 0 && (
         <div className="relativegrid grid-cols-5 gap-4 p-4">
-          <div className="col-span-1 flex flex-col  gap-2">
+          <div className="col-span-5 flex flex-col items-center justify-center gap-2">
             <p className="hiking-font text-5xl">Your cart is empty.</p>
             <p className="text-4xl hiking-font">
               {" "}
@@ -40,7 +42,7 @@ export default function ShoppingCartOverview() {
             <Image
               src={BearSittingDown}
               alt="Bear Sitting Down"
-              className="absolute bottom-10 left-10 w-[45rem] object-cover"
+              className="w-[45rem] object-cover"
               priority={true}
             />
           </div>

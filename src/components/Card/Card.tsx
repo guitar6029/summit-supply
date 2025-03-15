@@ -32,10 +32,16 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
     dispatch({ type: "SET_SIZE", value: size });
   }
 
-    function addItemToShoppingCart(){
-        console.log('clicked this add to cart')
-      addToShoppingCart(Number(id), boot.model, state.quantity, state.selectedBootSize);
-    }
+  function addItemToShoppingCart() {
+    addToShoppingCart(
+      Number(id),
+      boot.model,
+      Number(boot.price),
+      state.quantity,
+      state.selectedBootSize,
+      bootImage
+    );
+  }
 
   return (
     <div className="mt-[10rem] text-white">
@@ -50,19 +56,23 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
             priority={true}
           />
           <div className="col-span-1 flex flex-col bg-[#1b5659]">
-            <div className="bg-[#0f3409] p-10">
+            <div className="bg-[#0f3409] flex flex-col gap-3 p-10">
               <h1 className="hiking-font text-9xl text-shadow-black boots-primary-color-title">
                 {boot.model}
               </h1>
               <p className="text-4xl text-wrap w-[40vw] font-bold">
                 {boot.description}
               </p>
+
+              <h1 className="text-9xl text-right font-bold">{boot.price}</h1>
             </div>
             <Image src={bootImage} alt="Boot" className="w-[25vw] mx-auto" />
             <div className="w-full h-[4rem] bg-[#0f3409]"></div>
           </div>
-          <div className="col-span-1 p-10 flex flex-col items-center justify-center gap-5 bg-[#efaf24]">
-            <h1 className="hiking-font text-8xl">Select Size</h1>
+          <div className="col-span-1 p-10 flex flex-col items-center justify-center gap-5 bg-[#efaf24] border-b-[3rem] border-[#1b5659]">
+            <h1 className="hiking-font text-8xl text-shadow-black">
+              Select Size
+            </h1>
             <div className="flex flex-row flex-wrap gap-3">
               {boot.sizes.map((size: number, index: number) => {
                 return (
@@ -72,7 +82,7 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
                       state.selectedBootSize === size
                         ? " bg-amber-500 text-white"
                         : "bg-white"
-                    } font-bold text-4xl w-[10rem] cursor-pointer hover:bg-amber-700 transition duration-300 ease-in rounded-full ridge-explorer-text p-4 flex flex-row items-center justify-center`}
+                    } font-bold text-4xl w-[10rem] cursor-pointer  shadow-lg shadow-black/50 hover:bg-amber-700 transition duration-300 ease-in rounded-full ridge-explorer-text p-4 flex flex-row items-center justify-center`}
                     key={index}
                   >
                     {size}
@@ -80,22 +90,36 @@ export default function Card({ id, bootImage, bgImg, boot }: CardProps) {
                 );
               })}
             </div>
-            <div className="flex flex-col items-center justify-center gap-4">
+
+            <div className="flex flex-col items-center justify-center gap-4 mt-10 ">
               <div className="flex flex-row items-center gap-10">
-                <button onClick={() => dispatch({type: "INCREMENT_QUANTITY", value: 1})} className="rounded-full cursor-pointer p-2 bg-white text-[#726da8]" >
-                  <Plus size={85} />
+                <button
+                  disabled={state.quantity === 0}
+                  onClick={() =>
+                    dispatch({ type: "DECREMENT_QUANTITY", value: 1 })
+                  }
+                  className="group cursor-pointer rounded-full p-2 bg-white text-[#726da8] shadow-lg shadow-black/50 hover:bg-amber-600 transition duration-300 ease-in hover:text-white"
+                >
+                  <Minus size={85} className="group-hover:cursor-pointer " />
                 </button>
-                <span className="text-7xl w-[5rem] text-center font-bold">{state.quantity}</span>
-                <button disabled={state.quantity === 0} onClick={() => dispatch({type: "DECREMENT_QUANTITY", value: 1})} className="rounded-full p-2 bg-white text-[#726da8]">
-                  <Minus size={85} />
+                <span className="text-7xl w-[5rem] text-center font-bold hiking-font text-shadow-black">
+                  {state.quantity}
+                </span>
+                <button
+                  onClick={() =>
+                    dispatch({ type: "INCREMENT_QUANTITY", value: 1 })
+                  }
+                  className="group cursor-pointer  rounded-full p-2 bg-white text-[#726da8]  shadow-lg shadow-black/50 hover:bg-amber-600 transition duration-300 ease-in hover:text-white"
+                >
+                  <Plus size={85} className="group-hover:cursor-pointer " />
                 </button>
               </div>
               <button
-                className="w-[20vw] p-4 rounded-lg cursor-pointer text-white bg-amber-700 font-bold text-4xl"
-                
+                disabled={state.quantity === 0 || state.selectedBootSize === null}
+                className={`w-[30vw] p-4 rounded-lg text-white mt-5 ${state.quantity === 0 || state.selectedBootSize === null ? 'bg-neutral-400 opacity-80' : 'bg-amber-700 cursor-pointer'}  font-bold text-4xl`}
                 onClick={addItemToShoppingCart}
               >
-                Add to shopping cart
+                Add to Your Cart
               </button>
             </div>
           </div>

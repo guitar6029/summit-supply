@@ -27,7 +27,7 @@ export default async function BootPage({ params }: { params: Promise<{ id: strin
       case "2": return TheTrailRoverBoot;
       case "3": return TheRidgeExplorerBoot;
       case "4": return TheTrailStriderBoot;
-      default: return null;
+      default: return TheSummitClassicBoot;
     }
   }
 

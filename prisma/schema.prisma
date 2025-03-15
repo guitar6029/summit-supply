@@ -7,13 +7,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model hikingboots {
-  id          Int       @id @default(autoincrement())
-  model       String?   @db.VarChar(255)
-  price       Decimal?  @db.Decimal(10, 2)
-  quantity    Int?
-  description String?
-  onsale      Boolean?
-  sizes       Int[]
-  created_at  DateTime? @default(now()) @db.Timestamp(6)
+model shoes {
+  id                                 Int      @id @default(autoincrement())
+  name                               String   @db.VarChar(255)
+  size                               Int[]
+  price                              Decimal  @db.Decimal(10, 2)
+  first_section_title                String[] @db.VarChar(255)
+  first_section_quote                String
+  first_section_background_image     String?  @db.VarChar(255)
+  first_section_background_image_alt String?  @db.VarChar(255)
+  second_section_boot_title          String?  @db.VarChar(255)
+  second_section_boot_description    String?
+  second_section_boot_boldtext       String?  @db.VarChar(255)
+  second_section_boot_img            String?  @db.VarChar(255)
+  second_section_boot_img_alt        String?  @db.VarChar(255)
+  secondary_img                      String?  @db.VarChar(255)
+  url_slug                           String   @unique @db.VarChar(255)
+  description_detailed               String?
+  material                           String[] @db.VarChar(255)
+  features                           String[] @db.VarChar(255)
+  care_instructions                  String[]
+  warranty_info                      String?
 }

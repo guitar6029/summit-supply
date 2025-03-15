@@ -115,7 +115,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
       <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 bg-[#11210e]">
         <div className="col-span-1 card-primary flex flex-col justify-between ">
           <div className="w-full h-[4rem] bg-[#11210e]"></div>
-          <div className="flex flex-col gap-10 items-center justify-center p-4">
+          <div className="flex flex-col gap-10 items-center justify-center p-4 border-t-4 border-b-4 border-[#1b5659]">
             <p className="text-2xl md:text-4xl text-center font-mono text-[#1b5659]">
               {parts.map((part, i) =>
                 part.toLowerCase() === bootBoldText.toLowerCase() ? (

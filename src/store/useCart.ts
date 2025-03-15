@@ -84,7 +84,7 @@ const useCart = create<CartState>((set) => ({
       const updatedCart = state.shoppingCart
         .map((item) =>
           item.id === id && item.size === size
-            ? { ...item, quantity: item.quantity - 1 }
+            ? { ...item, quantity: item.quantity - 1, total: item.total - item.price }
             : item
         )
         .filter((item) => item.quantity > 0); // Remove items with quantity 0
@@ -97,7 +97,7 @@ const useCart = create<CartState>((set) => ({
     set((state) => {
       const updatedCart = state.shoppingCart.map((item) =>
         item.id === id && item.size === size
-          ? { ...item, quantity: item.quantity + 1 }
+          ? { ...item, quantity: item.quantity + 1, total: item.total + item.price }
           : item
       );
 

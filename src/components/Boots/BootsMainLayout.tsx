@@ -87,7 +87,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
         {/* left side */}
         <div className="col-span-1">
           {/* section with the fixed text */}
-          <div className="hiking-font text-[4rem] md:text-[7rem] text-center md:text-left font-bold text-wrap md:text-nowrap flex flex-col gap-1 sticky top-[4rem] ml-10">
+          <div className="hiking-font text-[7rem] md:text-[14rem] text-center md:text-left font-bold text-wrap md:text-nowrap flex flex-col gap-1 sticky top-[4rem] ml-10">
             <h1 className="leather-boot-color text-shadow-white">
               {bootProps.firstSectionTitle[0]}
             </h1>
@@ -145,7 +145,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
             </h1>
           </div>
 
-          <div className="flex flex-row items-center justify-center p-4">
+          <div className="flex flex-row items-center justify-center">
             <Image
               src={getBootImage(bootProps.secondSectionBootImg)}
               alt={bootProps.secondSectionBootImgAlt}
@@ -155,7 +155,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
             />
           </div>
           <div
-            className={`w-full h-[15rem] ${getSecondaryBgClass(
+            className={`w-full h-[25rem] ${getSecondaryBgClass(
               bootProps.secondaryImg
             )}`}
           ></div>

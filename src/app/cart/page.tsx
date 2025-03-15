@@ -35,7 +35,7 @@ export default function ShoppingCartOverview() {
             <p className="hiking-font text-5xl">Your cart is empty.</p>
             <p className="text-4xl hiking-font">
               {" "}
-              Here is a bear to keep you company
+              Here is a bear to keep you company.
             </p>
             <Image
               src={BearSittingDown}

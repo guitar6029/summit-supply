@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Summit Supply",
+  title: "Supply Summit",
   description: "Handmade for the Trail. Built to Last.",
 };
 

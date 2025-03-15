@@ -6,7 +6,7 @@ export default function Home() {
       <Hero />
       <section className="relative min-h-screen grid grid-cols-1  ridge-explorer-collection-bg">
         <div className="col-span-1 flex flex-col justify-center">
-          <div className="text-7xl md:text-7xl lg:text-[12rem] hiking-font text-shadow flex flex-col p-10">
+          <div className="text-7xl md:text-7xl lg:text-[10rem] hiking-font text-shadow flex flex-col p-10">
             <span>Introducing the Ridge Explorer Collection</span>
             <Link
               href="/boots"

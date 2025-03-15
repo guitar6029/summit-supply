@@ -10,7 +10,7 @@ export default function Boots() {
   return (
     <>
       {/* bg-[#0f3409] */}
-      <div className="min-h-screen boot-layout-bg relative">
+      <div className="min-h-screen boot-layout-bg relative flex flex-col justify-between">
         <div className="top-10 left-15  p-10 sticky z-[2]">
           <h1 className="hiking-font text-[5rem] md:text-[10rem] text-wrap md:text-wrap text-shadow">
             Boots Built for Every Journey

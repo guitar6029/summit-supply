@@ -125,9 +125,16 @@ body {
 }
 
 .boot-layout-bg {
-  background-image: url("/img//nathan-dumlao-bWVDTNHcXPk-unsplash.jpg");
+  background-image: url("/img/nathan-dumlao-bWVDTNHcXPk-unsplash.jpg");
   background-size: cover;
   background-position: fixed;
+  background-repeat: no-repeat;
+}
+
+.ridge-explorer-collection-bg {
+  background-image: url("/img/ridgeExplorerCollection.jpg");
+  background-size: cover;
+  background-position:center;
   background-repeat: no-repeat;
 }
 

@@ -19,9 +19,15 @@ export default async function BootPage({
 
   if (isNaN(bootId)) {
     return (
-      <div>
-        <h1>Invalid Boot ID</h1>
-        <p>Please provide a valid boot ID.</p>
+      <div className="min-h-screen flex flex-col items-center justify-center p-10">
+        <h1 className="text-5xl font-bold mb-4">Invalid Boot ID</h1>
+        <p className="text-3xl">Please provide a valid boot ID.</p>
+        <Link
+          href="/"
+          className="bg-amber-600 w-full md:w-1/4 hover:bg-amber-800 transition duration-300 ease-in text-white rounded-lg px-4 py-2 mt-4"
+        >
+          Home
+        </Link>
       </div>
     );
   }
@@ -76,7 +82,15 @@ export default async function BootPage({
         id={resolvedParams.id}
         bootImage={getBootImage(resolvedParams.id)}
         bgImg={Forest}
-        boot={{ ...boot, price: boot.price?.toString() || "0.00" }}
+        boot={{
+          ...boot,
+          model: boot.model || "",
+          description: boot.description || "",
+          price: boot.price?.toString() || "0.00",
+          quantity: boot.quantity || 0,
+          onsale: boot.onsale || false,
+          created_at: boot.created_at || new Date(),
+        }}
       />
     </Suspense>
   );

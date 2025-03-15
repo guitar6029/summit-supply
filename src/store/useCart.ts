@@ -3,6 +3,7 @@
 import { create } from "zustand";
 import type { CartItem } from "@/types/Cart";
 import { StaticImageData } from "next/image";
+import { toast } from 'react-toastify';
 
 // Define the store type
 type CartState = {
@@ -57,6 +58,13 @@ const useCart = create<CartState>((set) => ({
               }
             : item
         );
+        //add toast notification
+        toast.success('Item added to cart', {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true});
       } else {
         // Add new item if it doesn't exist
         console.log("adding new items");
@@ -72,6 +80,13 @@ const useCart = create<CartState>((set) => ({
             bootImage,
           },
         ];
+
+        toast.success('Item added to cart', {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true});
       }
 
       // Save the cart to local storage

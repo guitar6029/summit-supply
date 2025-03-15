@@ -1,8 +1,13 @@
+"use client"
+
 import Image from "next/image";
 import Logo from "@/assets/img/logo.png";
+import { usePathname } from "next/navigation";
 
 import Link from "next/link";
 export default function Navigation() {
+  const pathname = usePathname();
+
   return (
     <div className="flex flex-row items-center justify-around h-[100px] fixed top-0 w-full bg-black z-[20]">
       <div className="hidden md:flex flex-row item-center gap-10">
@@ -14,7 +19,9 @@ export default function Navigation() {
         </Link>
         <Link
           href={"/boots"}
-          className="hiking-font text-4xl hover:text-orange-500 transition duration-300 ease-in"
+          className={`hiking-font ${
+            pathname.includes("/boots") ? "text-orange-500" : " "
+          } text-4xl hover:text-orange-500 transition duration-300 ease-in`}
         >
           Boots
         </Link>
@@ -28,13 +35,17 @@ export default function Navigation() {
       <div className="hidden md:flex flex-row item-center gap-10">
         <Link
           href={"/about"}
-          className="hiking-font text-4xl hover:text-orange-500 transition duration-300 ease-in"
+          className={`hiking-font ${
+            pathname === "/about" ? "text-orange-500" : " "
+          } text-4xl hover:text-orange-500 transition duration-300 ease-in`}
         >
           Our Story
         </Link>
         <Link
           href={"/cart"}
-          className="hiking-font text-4xl hover:text-orange-500 transition duration-300 ease-in"
+          className={`hiking-font text-4xl ${
+            pathname === "/cart" ? "text-orange-500" : " "
+          } hover:text-orange-500 transition duration-300 ease-in`}
         >
           Cart
         </Link>

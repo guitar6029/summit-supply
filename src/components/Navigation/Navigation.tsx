@@ -47,7 +47,7 @@ export default function Navigation() {
         
           <Link
             href={"/cart"}
-            className={`hiking-font text-4xl flex flex-row items-baseline gap-2 ${
+            className={`hiking-font text-4xl flex flex-row items-center gap-2 ${
               pathname === "/cart" ? "text-orange-500" : " "
             } hover:text-orange-500 transition duration-300 ease-in`}
           >

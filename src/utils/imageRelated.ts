@@ -1,7 +1,7 @@
 import Forest from "@/assets/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg";
 import TheSummitClassicBoot from "@/assets/img/boot.png";
 import TheRidgeExplorerBoot from "@/assets/img/ridgeExplorer_nobackground.png";
-import TheTrailRoverBoot from "@/assets/img/trailRover_nobackground.png";
+import TheTrailRoverBoot from "@/assets/img/trailrover.jpg";
 import TheTrailStriderBoot from "@/assets/img/trailStider_nobackground.png";
 
 import ClassicBootImageBg from "@/assets/img/summitclassic.jpg";

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Hero from "@/components/Hero/Hero";
+import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen">
       <Hero />
-      <section className="relative min-h-screen grid grid-cols-1  ridge-explorer-collection-bg">
+      <section className="relative min-h-screen grid grid-cols-1 ridge-explorer-collection-bg">
         <div className="col-span-1 flex flex-col justify-center">
           <div className="text-7xl md:text-7xl lg:text-[10rem] hiking-font text-shadow flex flex-col p-10">
             <span>Introducing the Ridge Explorer Collection</span>
@@ -17,6 +18,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

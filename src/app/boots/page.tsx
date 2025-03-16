@@ -21,7 +21,7 @@ export default async function Boots() {
     <>
       {/* bg-[#0f3409] */}
       <div className="min-h-screen boot-layout-bg relative flex flex-col justify-between">
-        <div className="top-10 left-15  p-10 sticky z-[2]">
+        <div className="top-10 left-15 p-10">
           <h1 className="hiking-font text-[5rem] md:text-[10rem] text-wrap md:text-wrap text-shadow">
             Boots Built for Every Journey
           </h1>
@@ -30,6 +30,7 @@ export default async function Boots() {
             adventure, comfort, and durability.
           </span>
         </div>
+        <div className="w-full h-[2rem] bg-[var(--forest-green)]"></div>
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="col-span-1 bg-[#15470d] h-[50vh]">
             <div className="relative w-full h-full overflow-hidden rounded-md">
@@ -59,6 +60,7 @@ export default async function Boots() {
             </div>
           </div>
         </div>
+        <div className="w-full h-[4rem] bg-[var(--forest-green)]"></div>
       </div>
       <div>
         {boots.map((boot: Boot) => {

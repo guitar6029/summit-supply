@@ -1,6 +1,6 @@
 import { Suspense } from "react"; // Import Suspense
 import prisma from "@/lib/prisma";
-import Card from "@/components/Card/Card";
+import BootContainer from "@/components/BootLayout/BootContainer";
 import { getBootImage, getForestImage } from "@/utils/imageRelated";
 import ItemNotFound from "@/components/NotFound/ItemNotFound";
 import { Boot } from "@/types/Boots";
@@ -32,7 +32,7 @@ export default async function BootPage({
   // Wrap Card inside Suspense
   return (
     <Suspense fallback={<div>Loading ...</div>}>
-      <Card
+      <BootContainer
         bootImage={getBootImage(resolvedParams.id)}
         bgImg={getForestImage()}
         boot={boot} // Now boot is guaranteed to be non-null

@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --forest-green: #0f3409;
 }
 
 @theme inline {
@@ -56,7 +57,7 @@ body {
 }
 
 .leather-boot-color {
-  color: rgb(153 92 63);
+  color: rgb(148, 72, 36);
 }
 
 .boots-primary-color-title {

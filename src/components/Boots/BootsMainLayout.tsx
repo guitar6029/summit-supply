@@ -7,26 +7,9 @@ import RidgeExplorerBg from "@/assets/img/degleex-ganzorig-wQImoykAwGs-unsplash.
 import TrailRoverBoot from "@/assets/img/trailRover_nobackground.png";
 import TrailStrider from "@/assets/img/trailStider_nobackground.png";
 import TrailStriderBg from "@/assets/img/jordan-pulmano-PoAkzayxhYE-unsplash.jpg";
-type BootProps = {
-  bootProps: {
-    id: number;
-    name: string;
-    firstSectionTitle: string[];
-    firstSectionQuote: string;
-    firstSectionBackgroundImage: string;
-    firstSectionBackgroundImageAlt: string;
-    secondSectionBootTitle: string;
-    secondSectionBootDescription: {
-      text: string;
-      boldtext: string;
-    };
-    secondSectionBootImg: string;
-    secondSectionBootImgAlt: string;
-    secondaryImg: string;
-    urlSlug: string;
-  };
-};
-export default function ClassicBoot({ bootProps }: BootProps) {
+import type { Boot } from "@/types/Boots";
+
+export default function ClassicBoot({ bootProps }: { bootProps: Boot }) {
   function getBackgroundImage(imageName: string) {
     if (imageName === "ridgeExplorer") {
       return RidgeExplorerBg;
@@ -68,17 +51,14 @@ export default function ClassicBoot({ bootProps }: BootProps) {
     return "hiking-bg";
   }
 
-  const bootText = bootProps.secondSectionBootDescription.text;
-  const bootBoldText = bootProps.secondSectionBootDescription.boldtext;
-  const parts = bootText.split(new RegExp(`(${bootBoldText})`, "gi"));
 
   return (
     <>
       <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 flex-col gap-6 p-4">
         {/* Background Image */}
         <Image
-          src={getBackgroundImage(bootProps.firstSectionBackgroundImage)}
-          alt={bootProps.firstSectionBackgroundImageAlt}
+          src={getBackgroundImage(bootProps.first_section_background_image)}
+          alt={bootProps.first_section_background_image_alt}
           width={1920}
           height={1080}
           className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
@@ -89,13 +69,13 @@ export default function ClassicBoot({ bootProps }: BootProps) {
           {/* section with the fixed text */}
           <div className="hiking-font text-[7rem] md:text-[14rem] text-center md:text-left font-bold text-wrap md:text-nowrap flex flex-col gap-1 sticky top-[4rem] ml-10">
             <h1 className="leather-boot-color text-shadow-white">
-              {bootProps.firstSectionTitle[0]}
+              {bootProps.first_section_title[0]}
             </h1>
             <h1 className="leather-boot-color text-shadow-white">
-              {bootProps.firstSectionTitle[1]}
+              {bootProps.first_section_title[1]}
             </h1>
             <h1 className="leather-boot-color text-shadow-white">
-              {bootProps.firstSectionTitle[2]}
+              {bootProps.first_section_title[2]}
             </h1>
           </div>
         </div>
@@ -105,7 +85,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
           <div className="flex flex-col">
             <div className="w-[100%] md:w-[30vw]  text-white p-4 ">
               <p className="mt-2 text-wrap text-[2rem] md:text-6xl font-bold text-center text-shadow">
-                <q>{bootProps.firstSectionQuote}</q>
+                <q>{bootProps.first_section_quote}</q>
               </p>
             </div>
           </div>
@@ -117,20 +97,12 @@ export default function ClassicBoot({ bootProps }: BootProps) {
           <div className="w-full h-[4rem] bg-[#11210e]"></div>
           <div className="flex flex-col gap-10 items-center justify-center p-4 border-t-4 border-b-4 border-[#1b5659]">
             <p className="text-2xl md:text-4xl text-center font-mono text-[#1b5659]">
-              {parts.map((part, i) =>
-                part.toLowerCase() === bootBoldText.toLowerCase() ? (
-                  <b key={i} className="hiking-font">
-                    {part}
-                  </b>
-                ) : (
-                  part
-                )
-              )}
+              {bootProps.second_section_boot_description}
             </p>
 
             <Link
               href={`/boots/${bootProps.id}`}
-              className="w-full md:w-1/2 text-center group hover:cursor-pointer p-4 md:rounded-full text-5xl font-bold bg-amber-600 hover:bg-amber-800 transition duration-300 ease-in"
+              className="w-full md:w-1/2 text-center group hover:cursor-pointer p-4 md:rounded-full text-5xl font-bold hiking-font bg-amber-600 hover:bg-amber-800 transition duration-300 ease-in"
             >
               <button className="group-hover:cursor-pointer">Find your boot</button>
             </Link>
@@ -141,14 +113,14 @@ export default function ClassicBoot({ bootProps }: BootProps) {
         <div className="col-span-1 flex flex-col justify-between">
           <div className="bg-[#0f3409] p-10">
             <h1 className="hiking-font text-4xl text-center md:text-left md:text-5xl lg:text-6xl text-nowrap  font-bold text-shadow">
-              {bootProps.secondSectionBootTitle}
+              {bootProps.second_section_boot_title}
             </h1>
           </div>
 
           <div className="flex flex-row items-center justify-center">
             <Image
-              src={getBootImage(bootProps.secondSectionBootImg)}
-              alt={bootProps.secondSectionBootImgAlt}
+              src={getBootImage(bootProps.second_section_boot_img)}
+              alt={bootProps.second_section_boot_img_alt}
               width={400}
               height={400}
               className="w-[40rem]"
@@ -156,7 +128,7 @@ export default function ClassicBoot({ bootProps }: BootProps) {
           </div>
           <div
             className={`w-full h-[25rem] ${getSecondaryBgClass(
-              bootProps.secondaryImg
+              bootProps.secondary_img
             )}`}
           ></div>
         </div>

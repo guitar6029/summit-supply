@@ -5,6 +5,7 @@ import type { CartItem } from "@/types/Cart";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
 import BearSittingDown from "@/assets/img/bear1.png";
+import Link from "next/link";
 export default function ShoppingCartOverview() {
   const { shoppingCart, increaseQuantity, decreaseQuantity, removeItem } =
     useCart();
@@ -57,13 +58,15 @@ export default function ShoppingCartOverview() {
               className="grid grid-cols-5 items-center gap-4 p-4"
             >
               <div className="col-span-1 flex flex-col">
+                <Link href={`/boots/${item.id}`} className="flex flex-col">
                 <Image
                   src={item.bootImage}
                   alt={item.model}
                   width={100}
                   height={100}
-                />
+                  />
                 <span className="hiking-font text-4xl">{item.model}</span>
+                </Link>
                 <span className="text-2xl">Size: {item.size}</span>
               </div>
               <div className="col-span-1 flex flex-row items-center gap-3">

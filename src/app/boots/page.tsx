@@ -1,12 +1,23 @@
 import BootsMainLayout from "@/components/Boots/BootsMainLayout";
-import { boots } from "@/data/Boots/boots";
+
 import type { Boot } from "@/types/Boots";
 import Image from "next/image";
 import RidgeExplorer from "@/assets/img/ridgeExplorer.jpg";
 import Classic from "@/assets/img/hiking_classic_boot.jpg";
 import TrailStrider from "@/assets/img/trailStrider.jpg";
+import prisma from "@/lib/prisma";
 
-export default function Boots() {
+export default async function Boots() {
+  const boots: Boot[] = await prisma.shoes.findMany();
+  if (!boots) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center p-10">
+        <h1 className="text-5xl font-bold mb-4">No Boots Found</h1>
+        <p className="text-3xl">Please try again later.</p>
+      </div>
+    );
+  }
+
   return (
     <>
       {/* bg-[#0f3409] */}
@@ -52,7 +63,7 @@ export default function Boots() {
       </div>
       <div>
         {boots.map((boot: Boot) => {
-          return <BootsMainLayout bootProps={boot} key={boot.id} />;
+          return <BootsMainLayout bootProps={{...boot, price: Number(boot.price)}} key={boot.id} />;
         })}
       </div>
     </>

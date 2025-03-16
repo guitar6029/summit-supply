@@ -4,6 +4,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --forest-green: #0f3409;
+  --dark-blue-gray: #726da8;
+  --mustard: #d49d1f;
 }
 
 @theme inline {
@@ -70,17 +72,6 @@ body {
 
 .primary-text {
   color: #ffa805;
-}
-
-.card-primary {
-  background: #d49d1f;
-}
-
-.ridge-explorer-text {
-  color: #726da8;
-}
-.ridge-explorer-text:hover {
-  color: white;
 }
 
 .hero-bg {

@@ -135,7 +135,7 @@ export default function Card({
             </div>
 
             {/* right side bg-[#efaf24] */}
-            <div className="col-span-1 p-10 flex flex-col gap-5 card-primary">
+            <div className="col-span-1 p-10 flex flex-col gap-5 bg-[var(--mustard)]">
               <h1 className="hiking-font text-4xl text-shadow-black">
                 {boot.name}
               </h1>
@@ -153,7 +153,7 @@ export default function Card({
                         state.selectedBootSize === size
                           ? " bg-amber-500 text-white"
                           : "bg-white"
-                      } font-bold text-4xl w-full md:w-[10rem] cursor-pointer shadow-lg shadow-black/50 hover:bg-amber-700 transition duration-300 ease-in ridge-explorer-text p-4 flex flex-row items-center justify-center`}
+                      } font-bold text-4xl w-full md:w-[10rem] cursor-pointer shadow-lg shadow-black/50 hover:bg-amber-700 transition duration-300 ease-in text-[var(--dark-blue-gray)] p-4 flex flex-row items-center justify-center`}
                       key={index}
                     >
                       {size}

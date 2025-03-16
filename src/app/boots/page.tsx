@@ -60,7 +60,7 @@ export default async function Boots() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[4rem] bg-[var(--forest-green)]"></div>
+       
       </div>
       <div>
         {boots.map((boot: Boot) => {

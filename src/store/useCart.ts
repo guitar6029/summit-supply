@@ -21,6 +21,7 @@ type CartState = {
   removeItem: (id: number, size: number) => void;
   clearAllItems: () => void;
   shoppingCartIsEmpty: () => boolean;
+  getTotalPrice: () => number;
 };
 
 // Load cart data from localStorage
@@ -144,6 +145,10 @@ const useCart = create<CartState>((set) => ({
       console.error("Error loading cart from local storage:", error);
       return true;
     }
+  },
+  getTotalPrice: () => {
+    const cart = localStorage.getItem("shoppingCart");
+    return cart ? JSON.parse(cart).reduce((total: number, item: CartItem) => total + item.total, 0) : 0;
   },
 }));
 

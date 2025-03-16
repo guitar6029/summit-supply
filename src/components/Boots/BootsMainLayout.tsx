@@ -51,7 +51,6 @@ export default function ClassicBoot({ bootProps }: { bootProps: Boot }) {
     return "hiking-bg";
   }
 
-
   return (
     <>
       <section className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 flex-col gap-6 p-4">
@@ -104,7 +103,9 @@ export default function ClassicBoot({ bootProps }: { bootProps: Boot }) {
               href={`/boots/${bootProps.id}`}
               className="w-full md:w-1/2 text-center group hover:cursor-pointer p-4 md:rounded-full text-5xl font-bold hiking-font bg-amber-600 hover:bg-amber-800 transition duration-300 ease-in"
             >
-              <button className="group-hover:cursor-pointer">Find your boot</button>
+              <button className="group-hover:cursor-pointer">
+                Find your boot
+              </button>
             </Link>
           </div>
           <div className="w-full h-[4rem] bg-[#0f3409]"></div>

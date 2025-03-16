@@ -1,5 +1,4 @@
 import BootsMainLayout from "@/components/Boots/BootsMainLayout";
-
 import type { Boot } from "@/types/Boots";
 import Image from "next/image";
 import RidgeExplorer from "@/assets/img/ridgeExplorer.jpg";
@@ -63,7 +62,12 @@ export default async function Boots() {
       </div>
       <div>
         {boots.map((boot: Boot) => {
-          return <BootsMainLayout bootProps={{...boot, price: Number(boot.price)}} key={boot.id} />;
+          return (
+            <BootsMainLayout
+              bootProps={{ ...boot, price: Number(boot.price) }}
+              key={boot.id}
+            />
+          );
         })}
       </div>
     </>

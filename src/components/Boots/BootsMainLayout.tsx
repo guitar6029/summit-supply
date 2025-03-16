@@ -101,7 +101,7 @@ export default function ClassicBoot({ bootProps }: { bootProps: Boot }) {
 
             <Link
               href={`/boots/${bootProps.id}`}
-              className="w-full md:w-1/2 text-center group hover:cursor-pointer p-4 md:rounded-full text-5xl font-bold hiking-font bg-amber-600 hover:bg-amber-800 transition duration-300 ease-in"
+              className="w-full md:w-1/2 text-center group hover:cursor-pointer p-4 text-5xl font-bold hiking-font bg-amber-600 hover:bg-amber-800 transition duration-300 ease-in"
             >
               <button className="group-hover:cursor-pointer">
                 Find your boot

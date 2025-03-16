@@ -43,16 +43,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.triangle {
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 0 50px 75px 50px;
-  transform: rotate(130deg);
-  border-color: transparent transparent #221a19 transparent;
-  transform: rotate(0deg);
-}
-
 .text-shadow {
   text-shadow: 4px 3px 2px rgba(219, 133, 44, 0.6);
 }

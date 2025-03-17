@@ -1,11 +1,11 @@
+import ClassicBootImageBg from "@/assets/img/summitclassic.jpg";
 import Forest from "@/assets/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg";
-import TheSummitClassicBoot from "@/assets/img/boot.png";
+import RidgeExplorerBootBg from "@/assets/img/ridgeExplorer.jpg";
 import TheRidgeExplorerBoot from "@/assets/img/ridgeExplorer_nobackground.png";
+import TheSummitClassicBoot from "@/assets/img/boot.png";
 import TheTrailRoverBoot from "@/assets/img/trailrover.jpg";
 import TheTrailStriderBoot from "@/assets/img/trailStider_nobackground.png";
-
-import ClassicBootImageBg from "@/assets/img/summitclassic.jpg";
-import RidgeExplorerBootBg from "@/assets/img/ridgeExplorer.jpg";
+import TheWeekendStrollerBoot from "@/assets/img/weekendstroller_nobg.png";
 import TrailRoverBootBg from "@/assets/img/trailrover.jpg";
 import TrailStriderBg from "@/assets/img/trailStrider.jpg";
 import UrbanVoyagerBg from "@/assets/img/urbanvoyager.jpg";
@@ -25,6 +25,8 @@ export function getBootImage(id: string) {
       return TheRidgeExplorerBoot;
     case "4":
       return TheTrailStriderBoot;
+    case "5":
+      return TheWeekendStrollerBoot;  
     default:
       return TheSummitClassicBoot;
   }

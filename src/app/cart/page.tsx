@@ -17,8 +17,8 @@ export default function ShoppingCartOverview() {
 
   return (
     <>
-      <div className="h-[40vh] hiking-bg"></div>
-      <div className="min-h-screen p-10 bg-[#1b5659]">
+      {/* <div className="h-[100vh] hiking-bg"></div> */}
+      <div className="min-h-screen p-10 main-gradient">
         <h1 className="hiking-font text-6xl text-amber-300">Shopping Cart</h1>
         {/* <hr /> */}
         {shoppingCart.length > 0 && (

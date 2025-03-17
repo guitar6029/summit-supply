@@ -7,7 +7,7 @@ export default function ClassicBoot({ bootProps }: { bootProps: Boot }) {
   return (
     <>
       <section className="flex flex-col items-start gap-2 w-full md:w-fit">
-        <h1 className="hiking-font w-full text-4xl lg:text-7xl text-nowrap p-4 font-bold text-shadow-black">
+        <h1 className="hiking-font w-full text-4xl lg:text-7xl text-nowrap text-center p-4 font-bold text-shadow-black">
           {bootProps.second_section_boot_title}
         </h1>
 
@@ -16,12 +16,12 @@ export default function ClassicBoot({ bootProps }: { bootProps: Boot }) {
           alt={bootProps.second_section_boot_img_alt}
           width={400}
           height={400}
-          className="w-[50%] object-contain mx-auto"
+          className="w-[100%] object-contain mx-auto rounded-[30%]"
         />
 
         <Link
           href={`/boots/${bootProps.id}`}
-          className="w-full group hover:cursor-pointer text-center p-4 text-5xl font-bold hiking-font hover:bg-amber-800 transition duration-300 ease-in"
+          className="w-full group hover:cursor-pointer text-center p-4 text-5xl font-bold hiking-font hover:bg-black transition duration-300 ease-in"
         >
           <button className="group-hover:cursor-pointer">Find your boot</button>
         </Link>

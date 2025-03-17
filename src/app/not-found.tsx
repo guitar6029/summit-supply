@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "@/assets/img/logo.png";
+import Logo from "@/assets/img/supply_summit_logo.png";
 
 export default function NotFound() {
   return (

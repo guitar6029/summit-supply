@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Hero from "@/components/Hero/Hero";
-import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -18,7 +17,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

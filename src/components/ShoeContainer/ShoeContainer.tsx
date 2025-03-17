@@ -57,7 +57,7 @@ export default function ShoeContainer({ shoe }: { shoe: Boot }) {
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="col-span-1 flex flex-col">
-            <div className="flex flex-col md:flex-row gap-10 p-10 forest-bg">
+            <div className="flex flex-col md:flex-row md:gap-1">
               {/* image gallery */}
               <div className="flex flex-row flex-wrap md:flex-col md:flex-nowrap gap-2">
                 {Array.from({ length: 5 }).map((_, index) => {
@@ -85,13 +85,13 @@ export default function ShoeContainer({ shoe }: { shoe: Boot }) {
                 alt="Boot"
                 width={400}
                 height={400}
-                className="w-[25vw] mx-auto"
+                className="w-[30vw] mx-auto"
               />
             </div>
           </div>
 
           {/* right side bg-[#efaf24] */}
-          <div className="col-span-1 p-5 flex flex-col justify-between gap-5">
+          <div className="col-span-1 p-5 flex flex-col gap-5">
             <div>
               <h1 className="hiking-font text-4xl text-shadow-black">
                 {shoe.name}

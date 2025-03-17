@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Logo from "@/assets/img/logo.png";
+import Logo from "@/assets/img/supply_summit_logo.png";
 import { usePathname } from "next/navigation";
 import { Backpack } from "lucide-react";
 import useCart from "@/store/useCart";
@@ -33,8 +33,12 @@ export default function Navigation() {
     <div className="flex flex-row items-center justify-around h-[100px] fixed top-0 w-full bg-black z-[20]">
       <div className="hidden md:flex flex-row items-center gap-10">
         <div className="hidden md:flex flex-row items-center">
-          <h1 className="hiking-font text-2xl">Supply Summit</h1>
-          <Image src={Logo} alt="Mountain and a Tree logo" width={100} height={50} />
+          <Image
+            src={Logo}
+            alt="Mountain and a Tree logo"
+            width={100}
+            height={50}
+          />
         </div>
         {myNavigationLinks.map((link) => {
           return (
@@ -42,7 +46,9 @@ export default function Navigation() {
               key={link.name}
               href={link.href}
               className={`hiking-font text-4xl transition duration-300 ease-in ${
-                pathname === link.href ? "text-[var(--dark-cyan)]" : "text-white"
+                pathname === link.href
+                  ? "text-[var(--dark-cyan)]"
+                  : "text-white"
               }`}
             >
               {link.name}

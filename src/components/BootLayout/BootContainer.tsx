@@ -75,7 +75,7 @@ export default function Card({
         {/* left side */}
         <div className="col-span-1">
           {/* section with the fixed text */}
-          <div className="hiking-font text-[7rem] md:text-[14rem] text-center md:text-left font-bold text-wrap md:text-nowrap flex flex-col gap-1 sticky top-[4rem] ml-10">
+          {/* <div className="hiking-font text-[7rem] md:text-[14rem] text-center md:text-left font-bold text-wrap md:text-nowrap flex flex-col gap-1 sticky top-[4rem] ml-10">
             <h1 className="leather-boot-color text-shadow-white">
               {boot.first_section_title[0]}
             </h1>
@@ -85,11 +85,11 @@ export default function Card({
             <h1 className="leather-boot-color text-shadow-white">
               {boot.first_section_title[2]}
             </h1>
-          </div>
+          </div> */}
         </div>
 
         {/* right side */}
-        <div className="z-10 p-4 col-span-1 flex flex-col sm:items-center justify-center">
+        {/* <div className="z-10 p-4 col-span-1 flex flex-col sm:items-center justify-center">
           <div className="flex flex-col border-[3rem] border-[var(--forest-green)] ">
             <Image src={bootImage} alt="Boot" className="w-[25vw] mx-auto" />
             <div className="w-[100%] md:w-[30vw]  text-white p-4 ">
@@ -98,7 +98,7 @@ export default function Card({
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       <div className="text-white bg-[#1b5659]">

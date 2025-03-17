@@ -106,6 +106,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.bunch-of-boots-bg {
+  background-image: url("/img/bunch-of-boots.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .boot-layout-bg {
   background-image: url("/img/nathan-dumlao-bWVDTNHcXPk-unsplash.jpg");
   background-size: cover;

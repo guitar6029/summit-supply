@@ -17,10 +17,6 @@ const myNavigationLinks = [
     href: "/boots",
   },
   {
-    name: "About",
-    href: "/about",
-  },
-  {
     name: "Cart",
     href: "/cart",
   },

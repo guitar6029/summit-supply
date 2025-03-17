@@ -32,7 +32,7 @@ export default async function Boots() {
           </span>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row md:flex-wrap gap-[1rem] md:items-center md:justify-center">
+      <div className="flex flex-col p-10 md:flex-row md:flex-wrap gap-[1rem] md:items-center md:justify-center">
         {boots.map((boot: Boot) => {
           return (
             <BootsMainLayout

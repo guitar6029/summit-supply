@@ -61,7 +61,10 @@ export default function ShoppingCartOverview() {
                 className="grid grid-cols-4 items-center gap-4 p-4"
               >
                 <div className="col-span-1 flex flex-col gap-2">
-                  <Link href={`/boots/${item.id}`} className="flex flex-col gap-3">
+                  <Link
+                    href={`/boots/${item.id}`}
+                    className="flex flex-col gap-3"
+                  >
                     <Image
                       src={item.bootImage}
                       alt={item.model}
@@ -70,7 +73,9 @@ export default function ShoppingCartOverview() {
                     />
                     <span className="hiking-font text-4xl">{item.model}</span>
                   </Link>
-                  <span className="text-3xl hiking-font">Size: {item.size}</span>
+                  <span className="text-3xl hiking-font">
+                    Size: {item.size}
+                  </span>
                 </div>
                 <div className="col-span-1 flex flex-row items-center gap-3">
                   <button

@@ -56,8 +56,8 @@ export default function ShoeContainer({ shoe }: { shoe: Boot }) {
     <div className="text-white min-h-screen mt-10">
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="col-span-1 flex flex-col">
-            <div className="flex flex-col md:flex-row md:gap-1">
+          <div className="col-span-1 flex flex-col p-10">
+            <div className="flex flex-col gap-4 md:flex-row md:gap-1">
               {/* image gallery */}
               <div className="flex flex-row flex-wrap md:flex-col md:flex-nowrap gap-2">
                 {Array.from({ length: 5 }).map((_, index) => {
@@ -74,7 +74,7 @@ export default function ShoeContainer({ shoe }: { shoe: Boot }) {
                       className={`${
                         state.currentImgSelected === index &&
                         "border-4 border-neutral-100"
-                      } w-[5vw] mx-auto`}
+                      } w-[150px] min-w-[150px] mx-auto`}
                     />
                   );
                 })}
@@ -85,7 +85,7 @@ export default function ShoeContainer({ shoe }: { shoe: Boot }) {
                 alt="Boot"
                 width={400}
                 height={400}
-                className="w-[30vw] mx-auto"
+                className="w-[100%] mx-auto"
               />
             </div>
           </div>

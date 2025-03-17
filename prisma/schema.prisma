@@ -14,18 +14,18 @@ model shoes {
   price                              Decimal  @db.Decimal(10, 2)
   first_section_title                String[] @db.VarChar(255)
   first_section_quote                String
-  first_section_background_image     String?  @db.VarChar(255)
-  first_section_background_image_alt String?  @db.VarChar(255)
-  second_section_boot_title          String?  @db.VarChar(255)
-  second_section_boot_description    String?
-  second_section_boot_boldtext       String?  @db.VarChar(255)
-  second_section_boot_img            String?  @db.VarChar(255)
-  second_section_boot_img_alt        String?  @db.VarChar(255)
-  secondary_img                      String?  @db.VarChar(255)
+  first_section_background_image     String  @db.VarChar(255)
+  first_section_background_image_alt String  @db.VarChar(255)
+  second_section_boot_title          String  @db.VarChar(255)
+  second_section_boot_description    String
+  second_section_boot_boldtext       String  @db.VarChar(255)
+  second_section_boot_img            String  @db.VarChar(255)
+  second_section_boot_img_alt        String  @db.VarChar(255)
+  secondary_img                      String  @db.VarChar(255)
   url_slug                           String   @unique @db.VarChar(255)
-  description_detailed               String?
+  description_detailed               String
   material                           String[] @db.VarChar(255)
   features                           String[] @db.VarChar(255)
   care_instructions                  String[]
-  warranty_info                      String?
+  warranty_info                      String
 }

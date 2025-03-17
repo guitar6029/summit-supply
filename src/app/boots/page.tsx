@@ -3,7 +3,12 @@ import type { Boot } from "@/types/Boots";
 import prisma from "@/lib/prisma";
 
 export default async function Boots() {
-  const boots: Boot[] = await prisma.shoes.findMany();
+  const boots: Boot[] = await prisma.shoes.findMany().then((shoes) =>
+    shoes.map((shoe) => ({
+      ...shoe,
+      price: Number(shoe.price), // Convert Decimal to number
+    }))
+  );
   if (!boots) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-10">

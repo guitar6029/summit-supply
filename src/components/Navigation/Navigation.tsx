@@ -34,7 +34,7 @@ export default function Navigation() {
       <div className="hidden md:flex flex-row items-center gap-10">
         <div className="hidden md:flex flex-row items-center">
           <h1 className="hiking-font text-2xl">Supply Summit</h1>
-          <Image src={Logo} alt="Mountain and a Tree logo" width={100} />
+          <Image src={Logo} alt="Mountain and a Tree logo" width={100} height={50} />
         </div>
         {myNavigationLinks.map((link) => {
           return (

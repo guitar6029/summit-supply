@@ -1,8 +1,6 @@
 "use client";
-
 import { create } from "zustand";
 import type { CartItem } from "@/types/Cart";
-import { StaticImageData } from "next/image";
 import { toast } from 'react-toastify';
 
 // Define the store type
@@ -14,7 +12,7 @@ type CartState = {
     price: number,
     quantity: number,
     size: number,
-    bootImage: StaticImageData
+    bootImage: string
   ) => void;
   increaseQuantity: (id: number, size: number) => void;
   decreaseQuantity: (id: number, size: number) => void;
@@ -83,7 +81,7 @@ const useCart = create<CartState>((set) => ({
         ];
 
         toast.success('Item added to cart', {
-          position: 'top-center',
+          position: 'bottom-right',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,

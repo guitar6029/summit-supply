@@ -9,6 +9,8 @@ export default function About() {
         <Image
           src={Forest}
           alt="forest"
+          width={400}
+          height={400}
           className="w-[100vw] h-[65vh] object-cover z-[1]"
         />
 

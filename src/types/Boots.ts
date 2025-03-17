@@ -20,4 +20,5 @@ export type Boot = {
   second_section_boot_img_alt: string; // Changed to snake_case
   secondary_img: string; // Changed to snake_case
   url_slug: string; // Changed to snake_case
+  img_url: string;
 };

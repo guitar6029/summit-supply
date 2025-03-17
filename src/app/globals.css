@@ -132,6 +132,12 @@ body {
   background-position: center;
 }
 
+.forest-bg {
+  background-image: url("/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 @media screen and (max-width: 1240px) {
   .boot-layout-bg {
     background-position: initial;

@@ -1,9 +1,8 @@
-import { Suspense } from "react"; // Import Suspense
-import prisma from "@/lib/prisma";
-import BootContainer from "@/components/BootLayout/BootContainer";
-import { getBootImage, getForestImage } from "@/utils/imageRelated";
-import ItemNotFound from "@/components/NotFound/ItemNotFound";
 import { Boot } from "@/types/Boots";
+import { Suspense } from "react"; // Import Suspense
+import ItemNotFound from "@/components/NotFound/ItemNotFound";
+import prisma from "@/lib/prisma";
+import ShoeContainer from "@/components/ShoeContainer/ShoeContainer";
 
 export default async function BootPage({
   params,
@@ -27,16 +26,12 @@ export default async function BootPage({
   }
 
   // Convert the rawBoot's Decimal price to a number
-  const boot = { ...rawBoot, price: Number(rawBoot.price) } as Boot;
+  const shoe = { ...rawBoot, price: Number(rawBoot.price) } as Boot;
 
   // Wrap Card inside Suspense
   return (
     <Suspense fallback={<div>Loading ...</div>}>
-      <BootContainer
-        bootImage={getBootImage(resolvedParams.id)}
-        bgImg={getForestImage()}
-        boot={boot} // Now boot is guaranteed to be non-null
-      />
+      <ShoeContainer shoe={shoe} />
     </Suspense>
   );
 }

@@ -8,6 +8,8 @@ export default function Hero() {
         <Image
           src={Logo}
           alt="Mountain and a Tree logo"
+          width={400}
+          height={400}
           className="absolute w-[40rem] z-[1]"
         />
         <div className="flex flex-row items-baseline z-[2] text-5xl md:text-[6rem] lg:text-[10rem] ">

@@ -146,7 +146,13 @@ const useCart = create<CartState>((set) => ({
   },
   getTotalPrice: () => {
     const cart = localStorage.getItem("shoppingCart");
-    return cart ? JSON.parse(cart).reduce((total: number, item: CartItem) => total + item.total, 0) : 0;
+    if (cart){
+      
+      const total = JSON.parse(cart).reduce((total: number, item: CartItem) => total + item.total, 0)
+      return total.toFixed(2);
+    } else {
+      return 0
+    }
   },
 }));
 

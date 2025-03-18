@@ -1,30 +1,12 @@
-"use client";
+"use server";
 
 import Image from "next/image";
 import Logo from "@/assets/img/supply_summit_logo.png";
-import { usePathname } from "next/navigation";
-import { Backpack } from "lucide-react";
-import useCart from "@/store/useCart";
-import Link from "next/link";
+import Account from "../Signin/Account";
+import ListLinks from "../Links/ListLinks";
+import { myNavigationLinks } from "@/data/navlinks";
 
-const myNavigationLinks = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "Boots",
-    href: "/boots",
-  },
-  {
-    name: "Cart",
-    href: "/cart",
-  },
-];
-export default function Navigation() {
-  const { shoppingCartIsEmpty } = useCart();
-  const pathname = usePathname();
-
+export default async function Navigation() {
   return (
     <div className="flex flex-row items-center justify-around h-[100px] fixed top-0 w-full bg-black z-[20]">
       <div className="hidden md:flex flex-row items-center gap-10">
@@ -36,23 +18,11 @@ export default function Navigation() {
             height={50}
           />
         </div>
-        {myNavigationLinks.map((link) => {
-          return (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`hiking-font text-4xl transition duration-300 ease-in ${
-                pathname === link.href
-                  ? "text-[var(--dark-cyan)]"
-                  : "text-white"
-              }`}
-            >
-              {link.name}
-              {link.name === "Cart" && !shoppingCartIsEmpty && <Backpack />}
-            </Link>
-          );
-        })}
+
+        <ListLinks links={myNavigationLinks} />
       </div>
+
+      <Account />
     </div>
   );
 }

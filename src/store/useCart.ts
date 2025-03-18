@@ -22,15 +22,18 @@ type CartState = {
   getTotalPrice: () => number;
 };
 
-// Load cart data from localStorage
+// Load cart data from localStorage, with checks for browser environment
 const loadCartFromLocalStorage = (): CartItem[] => {
-  try {
-    const storedCart = localStorage.getItem("shoppingCart");
-    return storedCart ? JSON.parse(storedCart) : [];
-  } catch (error) {
-    console.error("Error loading cart from local storage:", error);
-    return [];
+  if (typeof window !== "undefined" && window.localStorage) {
+    try {
+      const storedCart = localStorage.getItem("shoppingCart");
+      return storedCart ? JSON.parse(storedCart) : [];
+    } catch (error) {
+      console.error("Error loading cart from local storage:", error);
+      return [];
+    }
   }
+  return []; // Return an empty array if not in the browser environment
 };
 
 // Zustand store with types
@@ -57,16 +60,16 @@ const useCart = create<CartState>((set) => ({
               }
             : item
         );
-        //add toast notification
+        // Add toast notification
         toast.success('Item added to cart', {
           position: 'top-center',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true});
+          pauseOnHover: true
+        });
       } else {
         // Add new item if it doesn't exist
-        console.log("adding new items");
         updatedCart = [
           ...state.shoppingCart,
           {
@@ -85,11 +88,15 @@ const useCart = create<CartState>((set) => ({
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true});
+          pauseOnHover: true
+        });
       }
 
       // Save the cart to local storage
-      localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      }
+
       return { shoppingCart: updatedCart };
     });
   },
@@ -104,7 +111,10 @@ const useCart = create<CartState>((set) => ({
         .filter((item) => item.quantity > 0); // Remove items with quantity 0
 
       // Save the cart to local storage
-      localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      }
+
       return { shoppingCart: updatedCart };
     }),
   increaseQuantity: (id, size) =>
@@ -116,7 +126,10 @@ const useCart = create<CartState>((set) => ({
       );
 
       // Save the cart to local storage
-      localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      }
+
       return { shoppingCart: updatedCart };
     }),
   removeItem: (id, size) =>
@@ -126,33 +139,41 @@ const useCart = create<CartState>((set) => ({
       );
 
       // Save the cart to local storage
-      localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem("shoppingCart", JSON.stringify(updatedCart));
+      }
+
       return { shoppingCart: updatedCart };
     }),
   clearAllItems: () =>
     set(() => {
       // Clear from local storage
-      localStorage.removeItem("shoppingCart");
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.removeItem("shoppingCart");
+      }
       return { shoppingCart: [] };
     }),
   shoppingCartIsEmpty: () => {
-    try {
-      const cart = localStorage.getItem("shoppingCart");
-      return cart ? JSON.parse(cart).length === 0 : true;
-    } catch (error) {
-      console.error("Error loading cart from local storage:", error);
-      return true;
+    if (typeof window !== "undefined" && window.localStorage) {
+      try {
+        const cart = localStorage.getItem("shoppingCart");
+        return cart ? JSON.parse(cart).length === 0 : true;
+      } catch (error) {
+        console.error("Error loading cart from local storage:", error);
+        return true;
+      }
     }
+    return true; // Assume cart is empty if not in the browser environment
   },
   getTotalPrice: () => {
-    const cart = localStorage.getItem("shoppingCart");
-    if (cart){
-      
-      const total = JSON.parse(cart).reduce((total: number, item: CartItem) => total + item.total, 0)
-      return total.toFixed(2);
-    } else {
-      return 0
+    if (typeof window !== "undefined" && window.localStorage) {
+      const cart = localStorage.getItem("shoppingCart");
+      if (cart) {
+        const total = JSON.parse(cart).reduce((total: number, item: CartItem) => total + item.total, 0);
+        return total.toFixed(2);
+      }
     }
+    return "0"; // Return 0 if no items in the cart or not in the browser
   },
 }));
 

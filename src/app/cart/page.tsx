@@ -4,6 +4,7 @@ import type { CartItem } from "@/types/Cart";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getShoePath } from "@/utils/pathRelated";
 export default function ShoppingCartOverview() {
   const {
     shoppingCart,
@@ -62,11 +63,11 @@ export default function ShoppingCartOverview() {
               >
                 <div className="col-span-1 flex flex-col gap-2">
                   <Link
-                    href={`/shoes/${item.id}`}
+                    href={`/${getShoePath(item.shoe_type)}/${item.id}`}
                     className="flex flex-col gap-3"
                   >
                     <Image
-                      src={item.bootImage}
+                      src={item.img_url}
                       alt={item.model}
                       width={250}
                       height={250}

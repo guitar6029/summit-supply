@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+import type {ShoeType} from "@/types/Shoe"
 
 export type CartItem = {
     id: number;
@@ -6,6 +6,7 @@ export type CartItem = {
     price: number,
     quantity: number;
     size: number;
-    bootImage: StaticImageData;
-    total: number
+    img_url: string;
+    total: number,
+    shoe_type: ShoeType
 };

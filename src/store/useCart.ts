@@ -1,7 +1,8 @@
 "use client";
 import { create } from "zustand";
 import type { CartItem } from "@/types/Cart";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
+import { ShoeType } from "@/types/Shoe";
 
 // Define the store type
 type CartState = {
@@ -12,7 +13,8 @@ type CartState = {
     price: number,
     quantity: number,
     size: number,
-    bootImage: string
+    img_url: string,
+    shoe_type: ShoeType
   ) => void;
   increaseQuantity: (id: number, size: number) => void;
   decreaseQuantity: (id: number, size: number) => void;
@@ -39,7 +41,15 @@ const loadCartFromLocalStorage = (): CartItem[] => {
 // Zustand store with types
 const useCart = create<CartState>((set) => ({
   shoppingCart: loadCartFromLocalStorage(), // Initial state
-  addToShoppingCart: (id, model, price, quantity, size, bootImage) => {
+  addToShoppingCart: (
+    id,
+    model,
+    price,
+    quantity,
+    size,
+    img_url,
+    shoe_type
+  ) => {
     set((state) => {
       const foundItem = state.shoppingCart.find(
         (item) => item.id === id && item.size === size
@@ -56,17 +66,18 @@ const useCart = create<CartState>((set) => ({
                 quantity: item.quantity + quantity,
                 price: item.price,
                 total: item.price * (item.quantity + quantity),
-                bootImage: item.bootImage,
+                img_url: item.img_url,
+                shoe_type: item.shoe_type,
               }
             : item
         );
         // Add toast notification
-        toast.success('Item added to cart', {
-          position: 'top-center',
+        toast.success("Item added to cart", {
+          position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true
+          pauseOnHover: true,
         });
       } else {
         // Add new item if it doesn't exist
@@ -79,16 +90,17 @@ const useCart = create<CartState>((set) => ({
             quantity,
             size,
             total: price * quantity,
-            bootImage,
+            img_url,
+            shoe_type,
           },
         ];
 
-        toast.success('Item added to cart', {
-          position: 'bottom-right',
+        toast.success("Item added to cart", {
+          position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true
+          pauseOnHover: true,
         });
       }
 
@@ -105,7 +117,11 @@ const useCart = create<CartState>((set) => ({
       const updatedCart = state.shoppingCart
         .map((item) =>
           item.id === id && item.size === size
-            ? { ...item, quantity: item.quantity - 1, total: item.total - item.price }
+            ? {
+                ...item,
+                quantity: item.quantity - 1,
+                total: item.total - item.price,
+              }
             : item
         )
         .filter((item) => item.quantity > 0); // Remove items with quantity 0
@@ -121,7 +137,11 @@ const useCart = create<CartState>((set) => ({
     set((state) => {
       const updatedCart = state.shoppingCart.map((item) =>
         item.id === id && item.size === size
-          ? { ...item, quantity: item.quantity + 1, total: item.total + item.price }
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              total: item.total + item.price,
+            }
           : item
       );
 
@@ -169,7 +189,10 @@ const useCart = create<CartState>((set) => ({
     if (typeof window !== "undefined" && window.localStorage) {
       const cart = localStorage.getItem("shoppingCart");
       if (cart) {
-        const total = JSON.parse(cart).reduce((total: number, item: CartItem) => total + item.total, 0);
+        const total = JSON.parse(cart).reduce(
+          (total: number, item: CartItem) => total + item.total,
+          0
+        );
         return total.toFixed(2);
       }
     }

@@ -48,16 +48,17 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
       Number(shoe.price),
       state.quantity,
       state.selectedBootSize ?? 7,
-      shoe.img_url
+      shoe.img_url,
+      shoe.shoe_type
     );
   }
 
   return (
     <div className="text-white min-h-screen mt-10">
       <div>
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="col-span-1 flex flex-col p-10">
-            <div className="flex flex-col gap-4 md:flex-row md:gap-1">
+        <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-2">
+          <div className="flex flex-col items-center justify-center p-10">
+            <div className="flex flex-col gap-4 md:flex-row md:item-center md:justify-center md:gap-1">
               {/* image gallery */}
               <div className="flex flex-row flex-wrap md:flex-col md:flex-nowrap gap-2">
                 {Array.from({ length: 5 }).map((_, index) => {
@@ -74,7 +75,7 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
                       className={`${
                         state.currentImgSelected === index &&
                         "border-4 border-neutral-100"
-                      } w-[150px] min-w-[150px] mx-auto`}
+                      } w-[150px]  mx-auto`}
                     />
                   );
                 })}
@@ -88,9 +89,38 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
                 className="w-[100%] mx-auto"
               />
             </div>
+            <div className="flex flex-col items-center justify-center md:flex-row md:flex-wrap gap-5 p-10 text-[#F5F5DC]">
+              {/* Description */}
+              <p className="text-4xl text-wrap w-full font-bold">
+                {shoe.second_section_boot_description}
+              </p>
+
+              {/* Features */}
+              <ListItems
+                title="Features"
+                list={shoe.features}
+                hasListStyle={true}
+              />
+              {/* Material */}
+              <ListItems
+                title="Material"
+                list={shoe.material}
+                hasListStyle={false}
+              />
+              {/* Care Instructions */}
+              <ListItems
+                title="Care Instructions"
+                list={shoe.care_instructions}
+                hasListStyle={false}
+              />
+
+              <div className="flex flex-col md:flex-row md:items-baseline gap-2">
+                <span className="font-bold text-4xl hiking-font">Warranty</span>
+                <span className="text-3xl">{shoe.warranty_info}</span>
+              </div>
+            </div>
           </div>
 
-          {/* right side bg-[#efaf24] */}
           <div className="col-span-1 p-5 flex flex-col gap-5">
             <div>
               <h1 className="hiking-font text-4xl text-shadow-black">
@@ -137,37 +167,6 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
             </div>
           </div>
         </div>
-
-        <section className="flex flex-col md:flex-row md:flex-wrap gap-5 p-10 text-[#F5F5DC]">
-          {/* Description */}
-          <p className="text-4xl text-wrap w-full font-bold">
-            {shoe.second_section_boot_description}
-          </p>
-
-          {/* Features */}
-          <ListItems
-            title="Features"
-            list={shoe.features}
-            hasListStyle={true}
-          />
-          {/* Material */}
-          <ListItems
-            title="Material"
-            list={shoe.material}
-            hasListStyle={false}
-          />
-          {/* Care Instructions */}
-          <ListItems
-            title="Care Instructions"
-            list={shoe.care_instructions}
-            hasListStyle={false}
-          />
-
-          <div className="flex flex-col md:flex-row md:items-baseline gap-2">
-            <span className="font-bold text-4xl hiking-font">Warranty</span>
-            <span className="text-3xl">{shoe.warranty_info}</span>
-          </div>
-        </section>
       </div>
     </div>
   );

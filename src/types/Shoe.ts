@@ -21,7 +21,7 @@ export type Shoe = {
   secondary_img: string;
   url_slug: string;
   img_url: string;
-  shoe_type: string;
+  shoe_type: ShoeType;
 };
 
 export type ShoeType = "boot" | "casual";

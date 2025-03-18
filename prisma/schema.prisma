@@ -29,4 +29,5 @@ model shoes {
   care_instructions                  String[]
   warranty_info                      String
   img_url                            String   @db.VarChar(250)
+  shoe_type                          String   @db.VarChar(20)
 }

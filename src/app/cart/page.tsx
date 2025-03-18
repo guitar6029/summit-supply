@@ -1,10 +1,8 @@
 "use client";
-
 import useCart from "@/store/useCart";
 import type { CartItem } from "@/types/Cart";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
-import BearSittingDown from "@/assets/img/bear1.png";
 import Link from "next/link";
 export default function ShoppingCartOverview() {
   const {
@@ -17,10 +15,8 @@ export default function ShoppingCartOverview() {
 
   return (
     <>
-      {/* <div className="h-[100vh] hiking-bg"></div> */}
       <div className="min-h-screen p-10 main-gradient">
         <h1 className="hiking-font text-6xl text-amber-300">Shopping Cart</h1>
-        {/* <hr /> */}
         {shoppingCart.length > 0 && (
           <div className="grid grid-cols-4 gap-3 p-4">
             <div className="col-span-1">
@@ -44,8 +40,12 @@ export default function ShoppingCartOverview() {
                 Here is a bear to keep you company.
               </p>
               <Image
-                src={BearSittingDown}
+                src={
+                  "https://supplysummit.s3.us-east-2.amazonaws.com/bear_wearing_backpack.png"
+                }
                 alt="Bear Sitting Down"
+                width={300}
+                height={300}
                 className="w-[45rem] object-cover"
                 priority={true}
               />
@@ -62,7 +62,7 @@ export default function ShoppingCartOverview() {
               >
                 <div className="col-span-1 flex flex-col gap-2">
                   <Link
-                    href={`/boots/${item.id}`}
+                    href={`/shoes/${item.id}`}
                     className="flex flex-col gap-3"
                   >
                     <Image
@@ -98,7 +98,6 @@ export default function ShoppingCartOverview() {
                   <span className="hiking-font text-4xl">{item.price}</span>
                 </div>
                 <div className="col-span-1">
-                  {/* <span className="hiking-font text-4xl">${item.total}</span> */}
                   <Trash2
                     onClick={() => removeItem(item.id, item.size)}
                     size={35}

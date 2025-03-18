@@ -9,7 +9,7 @@ export default function Home() {
           <div className="text-7xl md:text-7xl lg:text-[10rem] hiking-font text-shadow flex flex-col p-10">
             <span>Introducing the Ridge Explorer Collection</span>
             <Link
-              href="/boots"
+              href="/shoes/boots"
               className="text-3xl md:text-5xl lg:text-6xl rounded-lg p-5 w-fit text-shadow-black bg-amber-600 hover:bg-amber-700 transition duration-300 ease-in"
             >
               Explore the Collections

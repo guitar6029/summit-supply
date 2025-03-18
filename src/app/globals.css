@@ -81,7 +81,7 @@ body {
 }
 
 .hero-bg {
-  background-image: url("/img/nathan-dumlao-pLoMDKtl-JY-unsplash.jpg");
+  background-image: url("https://supplysummit.s3.us-east-2.amazonaws.com/supply_summit_hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -133,11 +133,6 @@ body {
   background-position: center;
 }
 
-.forest-bg {
-  background-image: url("/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-}
 
 @media screen and (max-width: 1240px) {
   .boot-layout-bg {

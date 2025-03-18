@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { useReducer } from "react";
 import useCart from "@/store/useCart";
-import type { Boot } from "@/types/Boots";
 import ListItems from "../List/List";
+import type { Shoe } from "@/types/Shoe";
 
 const intialState = {
   quantity: 1,
@@ -33,7 +33,7 @@ const reducer = (state: typeof intialState, action: ActionType) => {
   }
 };
 
-export default function ShoeContainer({ shoe }: { shoe: Boot }) {
+export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
   const { addToShoppingCart } = useCart();
   const [state, dispatch] = useReducer(reducer, intialState);
 

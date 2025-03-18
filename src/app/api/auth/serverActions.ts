@@ -1,5 +1,4 @@
 "use server";
-
 import { signIn, signOut, auth } from "@/auth";
 
 export async function signInWithGoogle() {

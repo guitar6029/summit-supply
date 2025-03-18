@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import { CircleUser } from 'lucide-react';
 
 export default function Account() {
   const { data: session, status } = useSession();
@@ -12,7 +13,8 @@ export default function Account() {
   return (
     <div>
       {session ? (
-        <div>
+        <div className="flex flex-row items-center gap-2">
+          <CircleUser className="w-8 h-8" />
           <p>Welcome, {session.user?.name || "User"}!</p>
           <button onClick={() => signOut()} className="cursor-pointer">
             Logout

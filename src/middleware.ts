@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export { auth as middleware } from "../auth"
-
-export function middlewareRoute(req: NextRequest) {
+export function middleware(req: NextRequest) {
     // check if user  is trying to access /checkout route directly
     if (req.nextUrl.pathname === '/checkout') {
         // check if user was coming from /cart route , otherwise redirect to /cart

@@ -117,7 +117,7 @@ export default function ShoppingCartOverview() {
             </span>
             <Link
               href="/checkout"
-              className="bg-amber-600 w-full md:w-1/4 hover:bg-amber-800 text-center text-3xl transition duration-300 ease-in text-white rounded-lg px-4 py-2 mt-4"
+              className="bg-[var(--mustard)] text-black hiking-font w-full md:w-1/4 text-center text-5xl transition duration-300 ease-in px-4 py-2 mt-4"
             >
               Checkout
             </Link>

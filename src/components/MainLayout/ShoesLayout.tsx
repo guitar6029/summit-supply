@@ -7,7 +7,7 @@ export default async function ShoesLayout({
 }: {
   shoesType: ShoeType;
 }) {
-  const shoes: Shoe[] = await getShoes(ShoeType);
+  const shoes: Shoe[] = await getShoes(ShoeType) as Shoe[];
 
   function noShoesFound(shoeType: ShoeType) {
     switch (shoeType) {

@@ -10,3 +10,9 @@ export type CartItem = {
     total: number,
     shoe_type: ShoeType
 };
+
+
+export type CheckoutItem = CartItem & {
+    shippingCost: number;
+  };
+  

@@ -65,7 +65,6 @@ const useCart = create<CartState>((set) => ({
                 ...item,
                 quantity: item.quantity + quantity,
                 price: item.price,
-                total: item.price * (item.quantity + quantity),
                 img_url: item.img_url,
                 shoe_type: item.shoe_type,
               }
@@ -73,7 +72,7 @@ const useCart = create<CartState>((set) => ({
         );
         // Add toast notification
         toast.success("Item added to cart", {
-          position: "top-center",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -89,14 +88,13 @@ const useCart = create<CartState>((set) => ({
             price,
             quantity,
             size,
-            total: price * quantity,
             img_url,
             shoe_type,
           },
         ];
 
         toast.success("Item added to cart", {
-          position: "bottom-right",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -120,7 +118,6 @@ const useCart = create<CartState>((set) => ({
             ? {
                 ...item,
                 quantity: item.quantity - 1,
-                total: item.total - item.price,
               }
             : item
         )
@@ -140,7 +137,6 @@ const useCart = create<CartState>((set) => ({
           ? {
               ...item,
               quantity: item.quantity + 1,
-              total: item.total + item.price,
             }
           : item
       );
@@ -186,17 +182,12 @@ const useCart = create<CartState>((set) => ({
     return true; // Assume cart is empty if not in the browser environment
   },
   getTotalPrice: () => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      const cart = localStorage.getItem("shoppingCart");
-      if (cart) {
-        const total = JSON.parse(cart).reduce(
-          (total: number, item: CartItem) => total + item.total,
-          0
-        );
-        return total.toFixed(2);
-      }
-    }
-    return "0"; // Return 0 if no items in the cart or not in the browser
+    const { shoppingCart } = useCart.getState();  // Access the current state of the shoppingCart
+    const total = shoppingCart.reduce(
+      (total: number, item: CartItem) => total + item.price * item.quantity,  // Calculate total for each item
+      0
+    );
+    return total.toFixed(2);  // Return the total as a string with 2 decimal places
   },
 }));
 

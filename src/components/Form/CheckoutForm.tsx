@@ -36,7 +36,7 @@ export default function CheckoutForm({
   // PayPal Options
   const initialOptions = {
     "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID! || "test",
-    "enable-funding": "paylater, card",
+    "enable-funding": "paylater,venmo,card",
   };
 
   // API Order Creation
@@ -71,7 +71,6 @@ export default function CheckoutForm({
     } catch (error) {
       console.error(error);
       toast.error("Order creation failed."); // Show error toast
-      alert("Order creation failed.");
       setLoading(false); // Re-enable button on failure
     }
   };
@@ -96,12 +95,10 @@ export default function CheckoutForm({
         
       } else {
         toast.error("Payment failed."); // Show error toast
-        alert("Payment failed.");
       }
     } catch (error) {
       console.error(error);
       toast.error("Transaction error."); // Show error toast
-      alert("Transaction error.");
     }
   };
 

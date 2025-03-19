@@ -12,7 +12,7 @@ export default function CheckoutPage() {
 
   const totalPrice = getTotalPrice();
   const shippingCost = totalPrice >= 300 ? 0 : 50;
-  const finalTotal = (Number(totalPrice) + Number(shippingCost)).toFixed(2);
+  const finalTotal = (Number(totalPrice).toFixed(2))
 
   const router = useRouter();
 

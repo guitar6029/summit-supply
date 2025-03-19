@@ -8,7 +8,7 @@ export const myNavigationLinks = [
       href: "/boots",
     },
     {
-      name: "Casual Shoes",
+      name: "Casual",
       href: "/casual",
     },
     {

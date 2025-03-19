@@ -20,7 +20,7 @@ export default function CustomLink({
     <Link
       href={href}
       className={`${className} ${
-        isActive ? "text-[var(--dark-cyan)]" : "text-white"
+        isActive ? "text-[var(--mustard)]" : "text-white"
       } transition duration-300 ease-in`}
     >
       {children}

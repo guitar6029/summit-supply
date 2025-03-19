@@ -152,7 +152,8 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
               </div>
             </div>
 
-            <div>
+            <div className="flex flex-col">
+              <span className="text-3xl">We offer free standard shipping on orders over $100, free exchanges, and easy returns.</span>
               <button
                 disabled={state.selectedBootSize === null}
                 className={`w-[100%] p-4 text-white mt-5 ${

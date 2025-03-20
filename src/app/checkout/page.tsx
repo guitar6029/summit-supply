@@ -3,6 +3,7 @@ import useCart from "@/store/useCart";
 import CheckoutForm from "@/components/Form/CheckoutForm";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { CartItem } from "@/types/Cart";
 
 export default function CheckoutPage() {
   const { shoppingCart, getTotalPrice, clearAllItems } = useCart();
@@ -25,7 +26,7 @@ export default function CheckoutPage() {
         <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-6 text-black w-full ">
           <h2 className="text-2xl font-semibold">Order Summary</h2>
           <ul className="mt-4">
-            {shoppingCart.map((item) => (
+            {shoppingCart.map((item: CartItem) => (
               <li key={item.id} className="flex justify-between border-b py-2">
                 <div className="flex flex-row gap-2 items-center">
                   <Image

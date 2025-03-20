@@ -1,7 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { CartItem } from "@/types/Cart";
+import { CartItem} from "@/types/Cart";
 import { toast } from "react-toastify"; // Assuming you're using react-toastify for toast notifications
 import { useState } from "react";
 
@@ -35,7 +35,7 @@ export default function CheckoutForm({
 
   // PayPal Options
   const initialOptions = {
-    "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID! || "test",
+    "clientId": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
     "enable-funding": "paylater,venmo,card",
   };
 
@@ -178,7 +178,7 @@ export default function CheckoutForm({
       <PayPalScriptProvider options={initialOptions}>
         <PayPalButtons
           style={{ shape: "rect", layout: "vertical" }}
-          createOrder={async (data, actions) => {
+          createOrder={async () => {
             return createOrder({
               shippingAddress: watch("shippingAddress"),
               shippingCity: watch("shippingCity"),
@@ -187,7 +187,7 @@ export default function CheckoutForm({
               shippingCountry: watch("shippingCountry"),
             });
           }}
-          onApprove={async (data, actions) => {
+          onApprove={async (data) => {
             capturePayment(data.orderID);
           }}
         />

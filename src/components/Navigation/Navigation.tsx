@@ -1,5 +1,4 @@
 "use server";
-// import Account from "../Signin/Account";
 import ListLinks from "../Links/ListLinks";
 import { myNavigationLinks } from "@/data/navlinks";
 import SupplySummitLogo from "../Logo/SupplySummitLogo";
@@ -14,7 +13,7 @@ export default async function Navigation() {
         <ListLinks links={myNavigationLinks} />
       </div>
 
-      {/* <Account /> */}
+      
     </div>
   );
 }

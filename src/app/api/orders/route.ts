@@ -7,12 +7,10 @@ import {
 export async function POST(req: Request) {
   try {
     const { cart, shippingCost, total, shippingAddress } = await req.json(); // Parse the incoming request body
-    
 
     //types gets lost here, so we have to cast as number for shippingCost and total
     const shippingCostNumber = Number(shippingCost);
     const totalNumber = Number(total);
-
 
     const orderId = await createPayPalOrder(
       cart,
@@ -20,7 +18,6 @@ export async function POST(req: Request) {
       totalNumber,
       shippingAddress
     ); // Call the lib function
-    //console.log('PayPal order ID:', orderId); // Log the order ID for debugging
 
     return new Response(JSON.stringify({ orderId })); // Return the PayPal order ID to the client
   } catch (error) {

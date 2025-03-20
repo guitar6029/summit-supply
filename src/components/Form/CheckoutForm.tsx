@@ -52,8 +52,8 @@ export default function CheckoutForm({
           total: finalTotal,
           shippingAddress: {
             address_line_1: data.shippingAddress, // Street address
-            admin_area_2: data.shippingCity,      // City
-            admin_area_1: data.shippingState,     // State
+            admin_area_2: data.shippingCity, // City
+            admin_area_1: data.shippingState, // State
             postal_code: data.shippingPostalCode, // Postal code
             country_code: data.shippingCountry.toUpperCase(), // Country code (should be in uppercase, e.g., "US")
           },
@@ -65,7 +65,6 @@ export default function CheckoutForm({
       const orderData = await response.json();
       toast.success("Order successfully created!"); // Show success toast
       onPaymentSuccess();
-      
 
       return orderData.id;
     } catch (error) {
@@ -77,8 +76,6 @@ export default function CheckoutForm({
 
   // PayPal Order Capture
   const capturePayment = async (orderID: string) => {
-    console.log("capturePayment called"); 
-    console.log("orderID", orderID);
     try {
       const response = await fetch(`/api/orders/${orderID}/capture`, {
         method: "POST",
@@ -86,13 +83,9 @@ export default function CheckoutForm({
       });
 
       const orderData = await response.json();
-      console.log('orderData ::', orderData);
       if (orderData?.purchase_units?.[0]?.payments?.captures?.[0]) {
         toast.success("Payment successful!"); // Show success toast
-        console.log('Payment successful!, will call onPaymentSuccess');
         onPaymentSuccess();
-
-        
       } else {
         toast.error("Payment failed."); // Show error toast
       }
@@ -162,10 +155,10 @@ export default function CheckoutForm({
               shippingCountry: watch("shippingCountry"),
             });
           }}
-          onApprove={async (data, actions) => { 
-            console.log("onApprove called");
-            capturePayment(data.orderID) 
-          } }
+          onApprove={async (data, actions) => {
+            
+            capturePayment(data.orderID);
+          }}
         />
       </PayPalScriptProvider>
     </form>

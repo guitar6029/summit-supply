@@ -37,13 +37,6 @@ export async function createPayPalOrder(
     country_code: string;
   }
 ) {
-  // Log to check the input data
-  console.log("Creating PayPal order with the following data:");
-  console.log("Cart Items:", cart);
-  console.log("Shipping Cost:", shippingCost);
-  console.log("Total:", total);
-  console.log("Shipping Address:", shippingAddress);
-
   const accessToken = await getPayPalAccessToken();
 
   // Calculate the item_total dynamically (sum of cart items without shipping)
@@ -53,8 +46,6 @@ export async function createPayPalOrder(
   );
   // Convert itemTotal to a number and apply toFixed(2)
   const itemTotalFormatted = parseFloat(itemTotal.toFixed(2));
-
-  console.log("Calculated item total (formatted):", itemTotalFormatted);
 
   // Add a small tolerance to compare numbers
   const tolerance = 0.01; // Small tolerance for floating-point comparison
@@ -113,12 +104,6 @@ export async function createPayPalOrder(
     },
   };
 
-  // Log the order data before sending it to PayPal
-  console.log(
-    "Order Data to be sent to PayPal:",
-    JSON.stringify(orderData, null, 2)
-  );
-
   const orderResponse = await fetch(`${PAYPAL_API_BASE}/v2/checkout/orders`, {
     method: "POST",
     headers: {
@@ -137,7 +122,6 @@ export async function createPayPalOrder(
   }
 
   const orderResult = await orderResponse.json();
-  console.log("PayPal order created successfully:", orderResult); // Log the response from PayPal
 
   if (!orderResult.id) {
     throw new Error("PayPal order creation failed: Order ID is missing.");
@@ -170,6 +154,5 @@ export async function capturePayPalOrder(orderId: string) {
   }
 
   const captureData = await captureResponse.json();
-  console.log("PayPal order captured successfully:", captureData); // Log capture success
   return captureData;
 }

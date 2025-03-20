@@ -1,6 +1,4 @@
 "use client";
-
-import { useState } from "react";
 import useCart from "@/store/useCart";
 import CheckoutForm from "@/components/Form/CheckoutForm";
 import Image from "next/image";
@@ -8,17 +6,14 @@ import { useRouter } from "next/navigation";
 
 export default function CheckoutPage() {
   const { shoppingCart, getTotalPrice, clearAllItems } = useCart();
-  const [message, setMessage] = useState("");
 
   const totalPrice = getTotalPrice();
   const shippingCost = totalPrice >= 300 ? 0 : 50;
-  const finalTotal = (Number(totalPrice).toFixed(2))
+  const finalTotal = Number(totalPrice).toFixed(2);
 
   const router = useRouter();
 
   function handlePaymentSuccess() {
-    //console.log("Hello, thanks for your purchase!");
-    setMessage("✅ Payment successful! Thank you for your purchase.");
     clearAllItems();
     router.push("/");
   }
@@ -71,8 +66,6 @@ export default function CheckoutPage() {
           </div>
         </div>
       </div>
-
-      {message && <p className="text-green-500 mt-4">{message}</p>}
     </div>
   );
 }

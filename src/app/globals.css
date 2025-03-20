@@ -142,3 +142,36 @@ body {
     background-size: auto;
   }
 }
+
+
+/* Global scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Width of the scrollbar */
+  height: 8px;
+  /* Height of the scrollbar for horizontal scrolling */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(222, 144, 8, 0.968);
+  /* Color of the scrollbar thumb */
+  border-radius: 4px;
+  /* Rounded corners for a modern look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(222, 144, 8, 0.968);
+  /* Darker thumb when hovered */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(3, 61, 65, 0.2);
+  /* Background color of the scrollbar track */
+  border-radius: 4px;
+  /* Rounded corners */
+}
+
+/* Add transition for smooth hover effect */
+::-webkit-scrollbar-thumb {
+  transition: background 0.3s ease;
+}

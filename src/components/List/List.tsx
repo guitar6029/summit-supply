@@ -8,7 +8,7 @@ export default function ListItems({
   title: string;
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4">
       <span className="font-bold text-4xl hiking-font">{title}</span>
       <ul className="list-inside flex flex-col gap-2">
         {list.map((feature: string, index: number) => {

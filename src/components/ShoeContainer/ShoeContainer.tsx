@@ -57,10 +57,10 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
     <div className="text-white min-h-screen mt-10">
       <div>
         <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-2">
-          <div className="flex flex-col items-center justify-center p-10">
-            <div className="flex flex-col gap-4 md:flex-row md:item-center md:justify-center md:gap-1">
+          <div className="flex flex-col items-center justify-center p-20">
+            <div className="flex flex-col gap-5 md:flex-row md:item-center md:justify-center md:gap-1">
               {/* image gallery */}
-              <div className="flex flex-row flex-wrap md:flex-col md:flex-nowrap gap-2">
+              <div className="flex flex-row overflow-x-scroll md:flex-col md:flex-nowrap gap-2">
                 {Array.from({ length: 5 }).map((_, index) => {
                   return (
                     <Image
@@ -89,7 +89,7 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
                 className="w-[100%] mx-auto"
               />
             </div>
-            <div className="flex flex-col items-center justify-center md:flex-row md:flex-wrap gap-5 p-10 text-[#F5F5DC]">
+            <div className="flex flex-col mt-10 md:flex-row md:flex-wrap gap-5 text-[#F5F5DC]">
               {/* Description */}
               <p className="text-4xl text-wrap w-full font-bold">
                 {shoe.second_section_boot_description}
@@ -121,7 +121,7 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
             </div>
           </div>
 
-          <div className="col-span-1 p-5 flex flex-col gap-5">
+          <div className="col-span-1 p-20 flex flex-col gap-5">
             <div>
               <h1 className="hiking-font text-4xl text-shadow-black">
                 {shoe.name}
@@ -153,7 +153,10 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
             </div>
 
             <div className="flex flex-col">
-              <span className="text-3xl">We offer free standard shipping on orders over $300, free exchanges, and easy returns.</span>
+              <span className="text-3xl">
+                We offer free standard shipping on orders over $300, free
+                exchanges, and easy returns.
+              </span>
               <button
                 disabled={state.selectedBootSize === null}
                 className={`w-[100%] p-4 text-white mt-5 ${

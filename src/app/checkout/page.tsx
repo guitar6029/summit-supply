@@ -19,18 +19,10 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center mt-10">
-      <h1 className="hiking-font text-6xl text-amber-300">Checkout</h1>
-
-      <div className="flex flex-col md:flex-row items-center justify-center gap-2">
-        <CheckoutForm
-          shoppingCart={shoppingCart}
-          shippingCost={shippingCost}
-          finalTotal={finalTotal}
-          onPaymentSuccess={handlePaymentSuccess}
-        />
-
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md w-1/2 mt-6 text-black">
+    <div className="min-h-screen flex flex-col mt-10">
+      <h1 className="hiking-font text-6xl text-amber-300 p-10">Checkout</h1>
+      <div className="flex flex-col md:flex-row items-center gap-2 p-10">
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-6 text-black w-full ">
           <h2 className="text-2xl font-semibold">Order Summary</h2>
           <ul className="mt-4">
             {shoppingCart.map((item) => (
@@ -42,29 +34,38 @@ export default function CheckoutPage() {
                     width={50}
                     height={50}
                   />
-                  <span>{item.model}</span>
+                  <span className="text-3xl">{item.model}</span>
                 </div>
-                <span>${item.price.toFixed(2)}</span>
+                <span className="text-3xl">${item.price.toFixed(2)}</span>
               </li>
             ))}
           </ul>
 
           <div className="flex justify-between mt-4 text-lg">
-            <span>Shipping:</span>
+            <span className="text-3xl">Shipping:</span>
             {totalPrice >= 300 ? (
               <span className="text-green-600 font-bold">
-                <s className="text-red-500 mr-2">$50.00</s> FREE SHIPPING
+                <s className="text-red-500 mr-2 text-3xl">$50.00</s> FREE
+                SHIPPING
               </span>
             ) : (
-              <span>${shippingCost.toFixed(2)}</span>
+              <span className="text-3xl">${shippingCost.toFixed(2)}</span>
             )}
           </div>
 
           <div className="flex justify-between mt-4 text-xl font-bold">
-            <span>Total:</span>
-            <span>${finalTotal}</span>
+            <span className="text-3xl">Total:</span>
+            <span className="text-3xl">${finalTotal}</span>
           </div>
         </div>
+      </div>
+      <div className="p-10 w-full md:w-[50vw]">
+        <CheckoutForm
+          shoppingCart={shoppingCart}
+          shippingCost={shippingCost}
+          finalTotal={finalTotal}
+          onPaymentSuccess={handlePaymentSuccess}
+        />
       </div>
     </div>
   );

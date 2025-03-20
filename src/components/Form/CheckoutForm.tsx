@@ -97,46 +97,56 @@ export default function CheckoutForm({
 
   return (
     <form onSubmit={handleSubmit(createOrder)} className="flex flex-col gap-2">
+      <label htmlFor="shippingAddress">Address</label>
       <input
         type="text"
         placeholder="Street Address"
+        className="text-3xl"
         {...register("shippingAddress", { required: "Address is required" })}
       />
       {errors.shippingAddress && <p>{errors.shippingAddress.message}</p>}
 
+      <label htmlFor="shippingCity">City</label>
       <input
         type="text"
         placeholder="City"
+        className="text-3xl"
         {...register("shippingCity", { required: "City is required" })}
       />
       {errors.shippingCity && <p>{errors.shippingCity.message}</p>}
 
+      <label htmlFor="shippingState">State</label>
       <input
         type="text"
         placeholder="State"
+        className="text-3xl"
         {...register("shippingState", { required: "State is required" })}
       />
       {errors.shippingState && <p>{errors.shippingState.message}</p>}
 
+      <label htmlFor="shippingPostalCode">Postal Code</label>
       <input
         type="text"
         placeholder="Postal Code"
+        className="text-3xl"
         {...register("shippingPostalCode", {
           required: "Postal Code is required",
         })}
       />
       {errors.shippingPostalCode && <p>{errors.shippingPostalCode.message}</p>}
 
+      <label htmlFor="shippingCountry">Country</label>
       <input
         type="text"
         placeholder="Country"
+        className="text-3xl"
         {...register("shippingCountry", { required: "Country is required" })}
       />
       {errors.shippingCountry && <p>{errors.shippingCountry.message}</p>}
 
       <button
         type="submit"
-        className="bg-blue-500 text-white p-2 mt-2 rounded"
+        className="bg-blue-500 max-h-[55px] max-w-[750px] text-white p-2 mt-2 rounded"
         disabled={loading} // Disable submit button while loading
       >
         {loading ? "Processing..." : "Submit Order"}
@@ -156,7 +166,6 @@ export default function CheckoutForm({
             });
           }}
           onApprove={async (data, actions) => {
-            
             capturePayment(data.orderID);
           }}
         />

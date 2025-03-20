@@ -17,9 +17,11 @@ export default function ShoppingCartOverview() {
   return (
     <>
       <div className="min-h-screen p-10 main-gradient">
-        <h1 className="hiking-font text-6xl text-amber-300">Shopping Cart</h1>
+        <h1 className="hiking-font text-6xl text-center text-amber-300">
+          Shopping Cart
+        </h1>
         {shoppingCart.length > 0 && (
-          <div className="grid grid-cols-4 gap-3 p-4">
+          <div className="hidden md:grid md:grid-cols-4 gap-3 p-4">
             <div className="col-span-1">
               <span className="hiking-font text-3xl">PRODUCT</span>
             </div>
@@ -33,7 +35,7 @@ export default function ShoppingCartOverview() {
         )}
 
         {shoppingCart.length === 0 && (
-          <div className="relativegrid grid-cols-5 gap-4 p-4">
+          <div className="relative grid grid-cols-5 gap-4 p-4">
             <div className="col-span-5 flex flex-col items-center justify-center gap-2">
               <p className="hiking-font text-5xl">Your cart is empty.</p>
               <p className="text-4xl hiking-font">
@@ -59,7 +61,7 @@ export default function ShoppingCartOverview() {
             return (
               <div
                 key={index}
-                className="grid grid-cols-4 items-center gap-4 p-4"
+                className="flex flex-col md:grid md:grid-cols-4 items-center gap-4 p-4"
               >
                 <div className="col-span-1 flex flex-col gap-2">
                   <Link
@@ -78,7 +80,7 @@ export default function ShoppingCartOverview() {
                     Size: {item.size}
                   </span>
                 </div>
-                <div className="col-span-1 flex flex-row items-center gap-3">
+                <div className="flex flex-row md:col-span-1 md:flex-row items-center gap-3">
                   <button
                     onClick={() => decreaseQuantity(item.id, item.size)}
                     disabled={item.quantity === 0}
@@ -112,9 +114,10 @@ export default function ShoppingCartOverview() {
           })}
         {getTotalPrice() > 0 && (
           <div className="flex flex-col items-end justify-end">
-            <span className="hiking-font text-7xl">
-              Total: ${getTotalPrice()}
-            </span>
+            <div className="flex flex-row gap-2 items-center">
+              <span className="hiking-font text-4xl">Total</span>
+              <span className="hiking-font text-7xl">${getTotalPrice()}</span>
+            </div>
             <Link
               href="/checkout"
               className="bg-[var(--mustard)] text-black hiking-font w-full md:w-1/4 text-center text-5xl transition duration-300 ease-in px-4 py-2 mt-4"

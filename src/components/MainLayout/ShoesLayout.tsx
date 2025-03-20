@@ -31,12 +31,12 @@ export default async function ShoesLayout({
 
   return (
     <>
-      <div className="min-h-screen relative flex flex-col justify-center bunch-of-boots-bg">
-        <div className="top-10 left-15 p-10">
+      <div className="min-h-screen relative flex flex-col  bunch-of-boots-bg">
+        <div className="p-10 main-gradient flex flex-col gap-2">
           <h1 className="hiking-font text-[5rem] md:text-[10rem] text-wrap md:text-wrap text-shadow-black">
             Built for Every Journey
           </h1>
-          <span className="text-4xl font-mono text-shadow ">
+          <span className="text-4xl hiking-font">
             From rugged peaks to city streets, our boots are designed for
             adventure, comfort, and durability.
           </span>

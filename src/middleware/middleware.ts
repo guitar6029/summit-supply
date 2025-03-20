@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export { auth as middleware } from "../auth"
 
 export function middlewareRoute(req: NextRequest) {
     // check if user  is trying to access /checkout route directly

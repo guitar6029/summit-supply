@@ -175,3 +175,9 @@ body {
 ::-webkit-scrollbar-thumb {
   transition: background 0.3s ease;
 }
+
+
+.shoe-backdrop-bg {
+  background: rgb(20,42,20);
+  background: linear-gradient(195deg, rgba(20,42,20,1) 2%, rgba(17,79,52,1) 100%);
+}

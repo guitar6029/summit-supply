@@ -54,123 +54,67 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
   }
 
   return (
-    <div className="text-white min-h-screen mt-10">
-      <div>
-        <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-2">
-          <div className="flex flex-col items-center justify-center p-20">
-            <div className="flex flex-col gap-5 md:flex-row md:item-center md:justify-center md:gap-1">
-              {/* image gallery */}
-              <div className="flex flex-row overflow-x-scroll md:flex-col md:flex-nowrap gap-2">
-                {Array.from({ length: 5 }).map((_, index) => {
-                  return (
-                    <Image
-                      onClick={() =>
-                        dispatch({ type: "CHANGE_IMAGE", value: index })
-                      }
-                      key={index}
-                      src={shoe.img_url}
-                      alt="Boot"
-                      width={400}
-                      height={400}
-                      className={`${
-                        state.currentImgSelected === index &&
-                        "border-4 border-neutral-100"
-                      } w-[150px]  mx-auto`}
-                    />
-                  );
-                })}
-              </div>
-              {/* In the future, this will have multiple images */}
-              <Image
-                src={shoe.img_url}
-                alt="Boot"
-                width={400}
-                height={400}
-                className="w-[100%] mx-auto"
-              />
-            </div>
-            <div className="flex flex-col mt-10 md:flex-row md:flex-wrap gap-5 text-[#F5F5DC]">
-              {/* Description */}
-              <p className="text-4xl text-wrap w-full font-bold">
-                {shoe.second_section_boot_description}
-              </p>
-
-              {/* Features */}
-              <ListItems
-                title="Features"
-                list={shoe.features}
-                hasListStyle={true}
-              />
-              {/* Material */}
-              <ListItems
-                title="Material"
-                list={shoe.material}
-                hasListStyle={false}
-              />
-              {/* Care Instructions */}
-              <ListItems
-                title="Care Instructions"
-                list={shoe.care_instructions}
-                hasListStyle={false}
-              />
-
-              <div className="flex flex-col md:flex-row md:items-baseline gap-2">
-                <span className="font-bold text-4xl hiking-font">Warranty</span>
-                <span className="text-3xl">{shoe.warranty_info}</span>
-              </div>
-            </div>
+    <div className="text-white flex-col min-h-screen mt-5">
+      <div className="hiking-font text-5xl w-full flex flex-row gap-5 items-center p-10 bg-[var(--dark-forest)]">
+        <span>{shoe.name}</span>
+        <span className="text-3xl hiking-font">${shoe.price}</span>
+      </div>
+      <div className="p-10 flex flex-col md:flex-row md:items-center md:gap-4 shoe-backdrop-bg">
+        <Image
+          src={shoe.img_url}
+          alt="Boot"
+          width={400}
+          height={400}
+          className="w-[400px] h-[400px] object-contain"
+        />
+        <div className="flex flex-col gap-4 p-10">
+          <h1 className="hiking-font text-4xl">Select Size</h1>
+          <div className="flex flex-row items-center flex-wrap gap-3 w-full ">
+            {shoe.size.map((size: number, index: number) => {
+              return (
+                <div
+                  onClick={() => handleSelectSize(size)}
+                  className={` ${
+                    state.selectedBootSize === size
+                      ? " bg-[var(--forest-green)] text-white"
+                      : "bg-black text-white"
+                  } font-bold text-xl rounded-full w-[8rem] md:w-[4rem] cursor-pointer shadow-lg shadow-black/50 transition duration-300 ease-in p-4 flex flex-row items-center justify-center`}
+                  key={index}
+                >
+                  {size}
+                </div>
+              );
+            })}
           </div>
-
-          <div className="col-span-1 p-20 flex flex-col gap-5">
-            <div>
-              <h1 className="hiking-font text-4xl text-shadow-black">
-                {shoe.name}
-              </h1>
-              <span className="text-3xl">${shoe.price}</span>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <h1 className="hiking-font text-4xl text-shadow-black">
-                Select Size
-              </h1>
-              <div className="flex flex-row items-center flex-wrap gap-3 w-full ">
-                {shoe.size.map((size: number, index: number) => {
-                  return (
-                    <div
-                      onClick={() => handleSelectSize(size)}
-                      className={` ${
-                        state.selectedBootSize === size
-                          ? " bg-[var(--forest-green)] text-white"
-                          : "bg-black text-white"
-                      } font-bold text-4xl w-full md:w-[10rem] cursor-pointer shadow-lg shadow-black/50 transition duration-300 ease-in p-4 flex flex-row items-center justify-center`}
-                      key={index}
-                    >
-                      {size}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <span className="text-3xl">
-                We offer free standard shipping on orders over $300, free
-                exchanges, and easy returns.
-              </span>
-              <button
-                disabled={state.selectedBootSize === null}
-                className={`w-[100%] p-4 text-white mt-5 ${
-                  state.selectedBootSize === null
-                    ? "bg-neutral-400 opacity-80"
-                    : "bg-black cursor-pointer uppercase"
-                }  font-bold text-4xl hiking-font`}
-                onClick={addItemToShoppingCart}
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
+          <button
+            disabled={state.selectedBootSize === null}
+            className={`w-[100%] p-4 text-white mt-5 ${
+              state.selectedBootSize === null
+                ? "bg-neutral-400 opacity-80"
+                : "bg-black cursor-pointer uppercase"
+            }  font-bold text-4xl hiking-font`}
+            onClick={addItemToShoppingCart}
+          >
+            Add to cart
+          </button>
         </div>
+      </div>
+      <div className="p-10 flex flex-col md:flex-row gap-4 bg-black">
+        {/* Features */}
+        <ListItems title="Features" list={shoe.features} hasListStyle={true} /> 
+        {/* Material */}
+        <ListItems title="Material" list={shoe.material} hasListStyle={false} />
+        {/* Care Instructions */}
+        <ListItems
+          title="Care Instructions"
+          list={shoe.care_instructions}
+          hasListStyle={false}
+        />
+      </div>
+      <div className="p-10">
+        <p className="text-4xl text-wrap w-full font-bold">
+          {shoe.second_section_boot_description}
+        </p>
       </div>
     </div>
   );

@@ -182,12 +182,12 @@ const useCart = create<CartState>((set) => ({
     return true; // Assume cart is empty if not in the browser environment
   },
   getTotalPrice: () => {
-    const { shoppingCart } = useCart.getState();  // Access the current state of the shoppingCart
-    const total = shoppingCart.reduce(
+    const { shoppingCart }: { shoppingCart: CartItem[] } = useCart.getState();  // Access the current state of the shoppingCart
+    const total : number = shoppingCart.reduce(
       (total: number, item: CartItem) => total + item.price * item.quantity,  // Calculate total for each item
       0
     );
-    return total.toFixed(2);  // Return the total as a string with 2 decimal places
+    return Number(total.toFixed(2));  // Return the total as a string with 2 decimal places
   },
 }));
 

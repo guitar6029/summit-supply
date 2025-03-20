@@ -7,7 +7,7 @@ export type CartItem = {
   quantity: number;
   size: number;
   img_url: string;
-  total: number;
+  // total: number;
   shoe_type: ShoeType;
 };
 

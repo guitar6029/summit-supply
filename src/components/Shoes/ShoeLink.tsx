@@ -11,7 +11,7 @@ export default function ShoeLink({ shoeProps }: { shoeProps: Shoe }) {
       <section className="flex flex-col items-start gap-2 w-full md:w-fit mt-10">
         <Link
           href={`/${getShoePath(shoeProps.shoe_type)}/${shoeProps.id}`}
-          className="w-full cursor-pointer flex flex-col rounded-xl gap-2 text-center p-4 text-5xl font-bold hiking-font hover:bg-[var(--forest-green-dark)] transition duration-300 ease-in"
+          className="w-full cursor-pointer flex flex-col rounded-xl gap-2 text-center p-4 text-5xl font-bold hiking-font bg-green-950 hover:bg-[var(--forest-green-dark)] transition duration-300 ease-in"
         >
           <Image
             src={shoeProps.img_url}

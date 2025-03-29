@@ -41,15 +41,7 @@ const loadCartFromLocalStorage = (): CartItem[] => {
 // Zustand store with types
 const useCart = create<CartState>((set) => ({
   shoppingCart: loadCartFromLocalStorage(), // Initial state
-  addToShoppingCart: (
-    id,
-    model,
-    price,
-    quantity,
-    size,
-    img_url,
-    shoe_type
-  ) => {
+  addToShoppingCart: (id, model, price, quantity, size, img_url, shoe_type) => {
     set((state) => {
       const foundItem = state.shoppingCart.find(
         (item) => item.id === id && item.size === size
@@ -71,7 +63,7 @@ const useCart = create<CartState>((set) => ({
             : item
         );
         // Add toast notification
-        toast.success("Item added to cart", {
+        toast.success(`${model} added to cart`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -93,7 +85,7 @@ const useCart = create<CartState>((set) => ({
           },
         ];
 
-        toast.success("Item added to cart", {
+        toast.success(`${model} added to cart`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -182,12 +174,12 @@ const useCart = create<CartState>((set) => ({
     return true; // Assume cart is empty if not in the browser environment
   },
   getTotalPrice: () => {
-    const { shoppingCart }: { shoppingCart: CartItem[] } = useCart.getState();  // Access the current state of the shoppingCart
-    const total : number = shoppingCart.reduce(
-      (total: number, item: CartItem) => total + item.price * item.quantity,  // Calculate total for each item
+    const { shoppingCart }: { shoppingCart: CartItem[] } = useCart.getState(); // Access the current state of the shoppingCart
+    const total: number = shoppingCart.reduce(
+      (total: number, item: CartItem) => total + item.price * item.quantity, // Calculate total for each item
       0
     );
-    return Number(total.toFixed(2));  // Return the total as a string with 2 decimal places
+    return Number(total.toFixed(2)); // Return the total as a string with 2 decimal places
   },
 }));
 

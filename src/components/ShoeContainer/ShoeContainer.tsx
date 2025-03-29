@@ -1,13 +1,14 @@
 "use client";
 import Image from "next/image";
-import { useReducer } from "react";
+import { useReducer, useRef } from "react";
 import useCart from "@/store/useCart";
 import ListItems from "../List/List";
 import type { Shoe } from "@/types/Shoe";
+import { btnMain } from "@/styles/btn";
 
 const intialState = {
   quantity: 1,
-  selectedBootSize: 7,
+  selectedBootSize: 8,
   disabledBtnToAddToShoppingCart: true,
   currentImgSelected: 0,
 };
@@ -37,6 +38,8 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
   const { addToShoppingCart } = useCart();
   const [state, dispatch] = useReducer(reducer, intialState);
 
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+
   function handleSelectSize(size: number) {
     dispatch({ type: "SET_SIZE", value: size });
   }
@@ -54,19 +57,47 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
   }
 
   return (
-    <div className="text-white flex-col min-h-screen mt-5">
-      <div className="hiking-font text-5xl w-full flex flex-row gap-5 items-center p-10 bg-[var(--dark-forest)]">
-        <span>{shoe.name}</span>
-        <span className="text-3xl hiking-font">${shoe.price}</span>
-      </div>
-      <div className="p-10 flex flex-col md:flex-row md:items-center md:gap-4 shoe-backdrop-bg">
+    <div className="relative text-white flex-col min-h-screen mt-5 ">
+      <div className="hiking-font w-full grid grid-cols-1 md:grid-cols-2 md:justify-between gap-5 p-10">
+        <div className="flex flex-col gap-10">
+          <span className="text-shadow text-5xl md:text-7xl ">{shoe.name}</span>
+          <span className="text-3xl sm:w-full md:w-fit hiking-font flex flex-row items-center p-5 text-black bg-yellow-400 border border-yellow-200">
+            ${shoe.price}
+          </span>
+
+          <p className="text-4xl w-full font-bold text-orange-00 text-shadow-black">
+            {shoe.second_section_boot_description}
+          </p>
+        </div>
         <Image
           src={shoe.img_url}
           alt="Boot"
-          width={400}
-          height={400}
-          className="w-[400px] h-[400px] object-contain"
+          width={500}
+          height={500}
+          className="min-w-[500px] max-w-[500px] h-[500px] object-contain rounded-xl shadow-lg shadow-black/50 mx-auto"
         />
+      </div>
+      <div className="p-10 flex flex-col gap-4 items-center md:gap-4 shoe-backdrop-bg">
+        <div
+          ref={imageContainerRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row lg:overflow-x-auto gap-10"
+        >
+          {Array.from({ length: 6 }, (_, index) => {
+            return (
+              <Image
+                key={index}
+                src={shoe.img_url}
+                alt="Boot"
+                width={400}
+                height={400}
+                className="w-[400px] h-[400px] object-contain rounded-xl shadow-lg shadow-black/50"
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="p-10 flex flex-col md:flex-row md:items-center md:gap-4 shoe-backdrop-bg">
         <div className="flex flex-col gap-4 p-10">
           <h1 className="hiking-font text-4xl">Select Size</h1>
           <div className="flex flex-row items-center flex-wrap gap-3 w-full ">
@@ -76,9 +107,9 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
                   onClick={() => handleSelectSize(size)}
                   className={` ${
                     state.selectedBootSize === size
-                      ? " bg-[var(--forest-green)] text-white"
+                      ? " bg-amber-600 text-white"
                       : "bg-black text-white"
-                  } font-bold text-xl rounded-full w-[8rem] md:w-[4rem] cursor-pointer shadow-lg shadow-black/50 transition duration-300 ease-in p-4 flex flex-row items-center justify-center`}
+                  } font-bold text-xl hover:bg-amber-300 rounded-full w-[4rem] md:w-[4rem] cursor-pointer shadow-lg shadow-black/50 transition duration-300 ease-in p-4 flex flex-row items-center justify-center`}
                   key={index}
                 >
                   {size}
@@ -90,9 +121,9 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
             disabled={state.selectedBootSize === null}
             className={`w-[100%] p-4 text-white mt-5 ${
               state.selectedBootSize === null
-                ? "bg-neutral-400 opacity-80"
-                : "bg-black cursor-pointer uppercase"
-            }  font-bold text-4xl hiking-font`}
+                ? "bg-neutral-400 opacity-80 disabled:cursor-not-allowed"
+                : btnMain
+            }  font-bold text-4xl hiking-font cursor-pointer`}
             onClick={addItemToShoppingCart}
           >
             Add to cart
@@ -110,11 +141,6 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
           list={shoe.care_instructions}
           hasListStyle={false}
         />
-      </div>
-      <div className="p-10">
-        <p className="text-4xl text-wrap w-full font-bold">
-          {shoe.second_section_boot_description}
-        </p>
       </div>
     </div>
   );

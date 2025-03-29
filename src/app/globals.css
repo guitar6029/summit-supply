@@ -114,6 +114,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.hiking-forest-bg {
+  background-image: url("/img/dan-meyers-ylJtKpTYjn4-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .bunch-of-boots-bg {
   background-image: url("/img/bunch-of-boots.jpg");
   background-size: cover;

@@ -1,0 +1,1 @@
+export const btnMain = "bg-yellow-600 w-full text-4xl hiking-font text-shadow-black md:w-fit text-center hover:bg-amber-400 transition duration-300 ease-in text-white rounded-lg p-5 shadow-lg shadow-black/50";

@@ -19,6 +19,22 @@ export default function CheckoutPage() {
     router.push("/");
   }
 
+  if (shoppingCart.length === 0) {
+    return (
+      <div className="min-h-screen flex flex-col mt-10">
+        <h1 className="hiking-font text-6xl text-amber-300 p-10">Checkout</h1>
+        <div className="flex flex-col md:flex-row items-center gap-2 p-10">
+          <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-6 text-black w-full">
+            <h2 className="text-2xl font-semibold">Your cart is empty</h2>
+            <p className="text-lg mt-2">
+              Please add items to your cart before checking out.
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen flex flex-col mt-10">
       <h1 className="hiking-font text-6xl text-amber-300 p-10">Checkout</h1>

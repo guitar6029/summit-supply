@@ -120,7 +120,7 @@ export default function ShoppingCartOverview() {
             </div>
             <Link
               href="/checkout"
-              className="bg-[var(--mustard)] text-black hiking-font w-full md:w-1/4 text-center text-5xl transition duration-300 ease-in px-4 py-2 mt-4"
+              className="bg-[var(--mustard)] text-black hiking-font w-full md:w-fit text-center text-5xl transition duration-300 ease-in px-4 py-2 mt-4"
             >
               Checkout
             </Link>

@@ -83,7 +83,7 @@ body {
 }
 
 .hero-bg {
-  background-image: url("https://supplysummit.s3.us-east-2.amazonaws.com/supply_summit_hero.jpg");
+  background-image: url("/img/supply_summit_hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

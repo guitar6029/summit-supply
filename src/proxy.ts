@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
     // check if user  is trying to access /checkout route directly
     if (req.nextUrl.pathname === '/checkout') {
         // check if user was coming from /cart route , otherwise redirect to /cart

@@ -1,5 +1,6 @@
 "use server";
 import prisma from "@/lib/prisma";
+import { getShoeImg } from "@/utils/pathRelated";
 
 export async function getShoes(shoeType: string) {
   if (!shoeType) {
@@ -14,6 +15,7 @@ export async function getShoes(shoeType: string) {
     .then((shoes) =>
       shoes.map((shoe) => ({
         ...shoe,
+        img_url: getShoeImg(shoe.name),
         price: Number(shoe.price), // Convert Decimal to number
       }))
     );
@@ -35,5 +37,5 @@ export async function getShoe(shoeId: number) {
     return [];
   }
 
-  return { ...shoe, price: Number(shoe.price) };
+  return { ...shoe, price: Number(shoe.price), img_url: getShoeImg(shoe.name) };
 }

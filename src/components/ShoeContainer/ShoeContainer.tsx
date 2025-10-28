@@ -14,14 +14,8 @@ const intialState = {
 };
 
 type ActionType =
-  | {
-      type: "SET_SIZE";
-      value: number;
-    }
-  | {
-      type: "CHANGE_IMAGE";
-      value: number;
-    };
+  | { type: "SET_SIZE"; value: number }
+  | { type: "CHANGE_IMAGE"; value: number };
 
 const reducer = (state: typeof intialState, action: ActionType) => {
   switch (action.type) {
@@ -37,7 +31,6 @@ const reducer = (state: typeof intialState, action: ActionType) => {
 export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
   const { addToShoppingCart } = useCart();
   const [state, dispatch] = useReducer(reducer, intialState);
-
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
   function handleSelectSize(size: number) {
@@ -51,16 +44,16 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
       Number(shoe.price),
       state.quantity,
       state.selectedBootSize ?? 7,
-      shoe.img_url,
+      shoe.img_url, // ✅ now points to /img/...
       shoe.shoe_type
     );
   }
 
   return (
-    <div className="relative text-white flex-col min-h-screen mt-5 ">
+    <div className="relative text-white flex-col min-h-screen mt-5">
       <div className="hiking-font w-full grid grid-cols-1 md:grid-cols-2 md:justify-between gap-5 p-10">
         <div className="flex flex-col gap-10">
-          <span className="text-shadow text-5xl md:text-7xl ">{shoe.name}</span>
+          <span className="text-shadow text-5xl md:text-7xl">{shoe.name}</span>
           <span className="text-3xl sm:w-full md:w-fit hiking-font flex flex-row items-center p-5 text-black bg-yellow-400 border border-yellow-200">
             ${shoe.price}
           </span>
@@ -69,73 +62,82 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
             {shoe.second_section_boot_description}
           </p>
         </div>
+
+        {/* ✅ Image from /public/img */}
         <Image
-          src={shoe.img_url}
-          alt="Boot"
+          src={
+            shoe.img_url.startsWith("/img/")
+              ? shoe.img_url
+              : `/img/${shoe.img_url}`
+          }
+          alt={shoe.second_section_boot_img_alt || shoe.name}
           width={500}
           height={500}
           className="min-w-[500px] max-w-[500px] h-[500px] object-contain rounded-xl shadow-lg shadow-black/50 mx-auto"
         />
       </div>
+
+      {/* Gallery section */}
       <div className="p-10 flex flex-col gap-4 items-center md:gap-4 shoe-backdrop-bg">
         <div
           ref={imageContainerRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row lg:overflow-x-auto gap-10"
         >
-          {Array.from({ length: 6 }, (_, index) => {
-            return (
-              <Image
-                key={index}
-                src={shoe.img_url}
-                alt="Boot"
-                width={400}
-                height={400}
-                className="w-[400px] h-[400px] object-contain rounded-xl shadow-lg shadow-black/50"
-              />
-            );
-          })}
+          {Array.from({ length: 6 }, (_, index) => (
+            <Image
+              key={index}
+              src={
+                shoe.img_url.startsWith("/img/")
+                  ? shoe.img_url
+                  : `/img/${shoe.img_url}`
+              }
+              alt={shoe.second_section_boot_img_alt || shoe.name}
+              width={400}
+              height={400}
+              className="w-[400px] h-[400px] object-contain rounded-xl shadow-lg shadow-black/50"
+            />
+          ))}
         </div>
       </div>
 
+      {/* Sizes + Add to Cart */}
       <div className="p-10 flex flex-col md:flex-row md:items-center md:gap-4 shoe-backdrop-bg">
         <div className="flex flex-col gap-4 p-10">
           <h1 className="hiking-font text-4xl">Select Size</h1>
-          <div className="flex flex-row items-center flex-wrap gap-3 w-full ">
-            {shoe.size.map((size: number, index: number) => {
-              return (
-                <div
-                  onClick={() => handleSelectSize(size)}
-                  className={` ${
-                    state.selectedBootSize === size
-                      ? " bg-amber-600 text-white"
-                      : "bg-black text-white"
-                  } font-bold text-xl hover:bg-amber-300 rounded-full w-[4rem] md:w-[4rem] cursor-pointer shadow-lg shadow-black/50 transition duration-300 ease-in p-4 flex flex-row items-center justify-center`}
-                  key={index}
-                >
-                  {size}
-                </div>
-              );
-            })}
+          <div className="flex flex-row items-center flex-wrap gap-3 w-full">
+            {shoe.size.map((size, index) => (
+              <div
+                onClick={() => handleSelectSize(size)}
+                className={` ${
+                  state.selectedBootSize === size
+                    ? "bg-amber-600 text-white"
+                    : "bg-black text-white"
+                } font-bold text-xl hover:bg-amber-300 rounded-full w-[4rem] cursor-pointer shadow-lg shadow-black/50 transition duration-300 ease-in p-4 flex flex-row items-center justify-center`}
+                key={index}
+              >
+                {size}
+              </div>
+            ))}
           </div>
+
           <button
             disabled={state.selectedBootSize === null}
             className={`w-[100%] p-4 text-white mt-5 ${
               state.selectedBootSize === null
                 ? "bg-neutral-400 opacity-80 disabled:cursor-not-allowed"
                 : btnMain
-            }  font-bold text-4xl hiking-font cursor-pointer`}
+            } font-bold text-4xl hiking-font cursor-pointer`}
             onClick={addItemToShoppingCart}
           >
             Add to cart
           </button>
         </div>
       </div>
+
+      {/* Details */}
       <div className="p-10 flex flex-col md:flex-row gap-4 bg-black">
-        {/* Features */}
-        <ListItems title="Features" list={shoe.features} hasListStyle={true} /> 
-        {/* Material */}
+        <ListItems title="Features" list={shoe.features} hasListStyle={true} />
         <ListItems title="Material" list={shoe.material} hasListStyle={false} />
-        {/* Care Instructions */}
         <ListItems
           title="Care Instructions"
           list={shoe.care_instructions}

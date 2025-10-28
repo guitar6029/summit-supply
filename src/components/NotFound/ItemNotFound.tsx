@@ -8,7 +8,7 @@ export default function ItemNotFound({
   msg: string;
 }) {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-10">
+    <div className="flex flex-col items-center justify-center p-10">
       <h1 className="text-5xl font-bold mb-4">{title}</h1>
       <p className="text-3xl">{msg}</p>
       <Link

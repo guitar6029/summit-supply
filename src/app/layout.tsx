@@ -33,21 +33,21 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col`}
-      >
-        <Navigation />
-          <main className="min-h-screen mt-[5rem]">{children}</main>
-          <Footer />
-          <ToastContainer />
-        
-        {/* <PayPalScriptProvider options={{ clientId: envKey }}>
+    <html lang="en" className="h-full">
+      <body className="min-h-dvh flex flex-col overflow-x-hidden">
+        <header className="sticky top-0 z-50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <Navigation />
-          <main className="min-h-screen mt-[5rem]">{children}</main>
+        </header>
+
+        {/* flex-1 makes main fill the remaining space.
+           overflow-y-auto lets long pages scroll without affecting header/footer */}
+        <main className="flex-1 overflow-y-auto mt-16">{children}</main>
+
+        <footer className="mt-auto">
           <Footer />
-          <ToastContainer />
-        </PayPalScriptProvider> */}
+        </footer>
+
+        <ToastContainer theme="colored" />
       </body>
     </html>
   );

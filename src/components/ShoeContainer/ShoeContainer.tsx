@@ -50,7 +50,7 @@ export default function ShoeContainer({ shoe }: { shoe: Shoe }) {
   }
 
   return (
-    <div className="relative text-white flex-col min-h-screen mt-5">
+    <div className="relative text-white flex-col mt-5">
       <div className="hiking-font w-full grid grid-cols-1 md:grid-cols-2 md:justify-between gap-5 p-10">
         <div className="flex flex-col gap-10">
           <span className="text-shadow text-5xl md:text-7xl">{shoe.name}</span>

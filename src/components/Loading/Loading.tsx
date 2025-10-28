@@ -16,7 +16,7 @@ export default function Loading() {
     loadingStatements[Math.floor(Math.random() * loadingStatements.length)];
 
   return (
-    <div className="min-h-screen p-10 mt-10 flex flex-col items-center justify-center hiking-font text-5xl lg:text-9xl">
+    <div className="p-10 mt-10 flex flex-col items-center justify-center hiking-font text-5xl lg:text-9xl">
       <span>{randonStatement}</span>
     </div>
   );

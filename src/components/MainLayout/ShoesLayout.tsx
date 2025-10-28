@@ -22,7 +22,7 @@ export default async function ShoesLayout({
 
   if (!shoes) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-10">
+      <div className="flex flex-col items-center justify-center p-10">
         <h1 className="text-5xl font-bold mb-4">{noShoesFound(ShoeType)}</h1>
         <p className="text-3xl">Please try again later.</p>
       </div>
@@ -31,7 +31,7 @@ export default async function ShoesLayout({
 
   return (
     <>
-      <div className="min-h-screen relative flex flex-col  bunch-of-boots-bg">
+      <div className="relative flex flex-col  bunch-of-boots-bg">
         <div className="p-10 main-gradient flex flex-col gap-2">
           <h1 className="hiking-font text-[5rem] md:text-[10rem] text-wrap md:text-wrap text-shadow">
             Built for Every Journey

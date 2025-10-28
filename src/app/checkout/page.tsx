@@ -21,7 +21,7 @@ export default function CheckoutPage() {
 
   if (shoppingCart.length === 0) {
     return (
-      <div className="min-h-screen flex flex-col mt-10">
+      <div className="flex flex-col mt-10">
         <h1 className="hiking-font text-6xl text-amber-300 p-10">Checkout</h1>
         <div className="flex flex-col md:flex-row items-center gap-2 p-10">
           <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-6 text-black w-full">
@@ -36,7 +36,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col mt-10">
+    <div className="flex flex-col mt-10">
       <h1 className="hiking-font text-6xl text-amber-300 p-10">Checkout</h1>
       <div className="flex flex-col md:flex-row items-center gap-2 p-10">
         <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-6 text-black w-full ">

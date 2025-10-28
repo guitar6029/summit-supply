@@ -16,7 +16,7 @@ export default function ShoppingCartOverview() {
 
   return (
     <>
-      <div className="min-h-screen p-10 main-gradient">
+      <div className="p-10 main-gradient">
         <h1 className="hiking-font text-6xl text-center text-amber-300">
           Shopping Cart
         </h1>
@@ -43,9 +43,7 @@ export default function ShoppingCartOverview() {
                 Here is a bear to keep you company.
               </p>
               <Image
-                src={
-                  "https://supplysummit.s3.us-east-2.amazonaws.com/bear_wearing_backpack.png"
-                }
+                src="/img/bear_wearing_backpack.png"
                 alt="Bear Sitting Down"
                 width={300}
                 height={300}

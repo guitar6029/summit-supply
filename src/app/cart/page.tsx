@@ -35,7 +35,7 @@ export default function ShoppingCartOverview() {
         )}
 
         {shoppingCart.length === 0 && (
-          <div className="relative grid grid-cols-5 gap-4 p-4">
+          <div className="relative grid grid-cols-5 gap-4 p-4 bg-amber-400/30 rounded-xl">
             <div className="col-span-5 flex flex-col items-center justify-center gap-2">
               <p className="hiking-font text-5xl">Your cart is empty.</p>
               <p className="text-4xl hiking-font">

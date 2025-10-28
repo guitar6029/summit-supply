@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="relative flex flex-col md:flex-row  justify-center w-[100vw] mt-10 p-10">
         <SupplySummitLogo className="w-[10rem] h-[10rem]" />
         <div className="flex flex-col gap-5">
-          <h1 className="hiking-font text-[3rem] md:text-[6rem] text-wrap text-shadow">
+          <h1 className="hiking-font text-[4rem] md:text-[8rem] text-wrap text-shadow">
             Built for the Trail, Styled for the Journey.
           </h1>
           <div className="flex flex-col items-center md:justify-center md:flex-row gap-5">
